@@ -1304,329 +1304,79 @@ a {
 }
 
 /* ==========================================================================
-   STEP 4: HOÀN TẤT & CHECK-IN CODE NOTICE (COMPACT & ZERO-SCROLL)
+   STEP 4: HOÀN TẤT & CHECK-IN CODE (COMPACT & DEPOSIT-FREE)
    ========================================================================== */
-.checkin-notice-box {
-  background-color: #FFFDF8;
-  border: 1.5px solid #E8D7B5;
-  border-radius: 8px;
-  padding: 0.45rem 0.85rem;
-  display: flex;
-  gap: 0.65rem;
+.booking-success-card {
+  text-align: center;
+  padding: 0.5rem 0.25rem;
+}
+
+.success-icon-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent-green);
+  color: #FFFFFF;
+  display: inline-flex;
   align-items: center;
-  margin-bottom: 0.65rem;
+  justify-content: center;
+  margin-bottom: 0.35rem;
 }
 
-.checkin-notice-icon {
-  font-size: 1.25rem;
-  flex-shrink: 0;
+.booking-code-card {
+  background: #FFFFFF;
+  border: 1.5px dashed var(--color-accent-green);
+  border-radius: var(--radius-md);
+  padding: 0.5rem 0.75rem;
+  margin: 0.4rem auto 0.6rem;
+  max-width: 360px;
 }
 
-.checkin-notice-text {
-  font-size: 0.76rem;
-  color: var(--color-text-dark);
-  line-height: 1.35;
+.booking-code-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  margin-bottom: 0.15rem;
+  display: block;
 }
 
 .prominent-code-badge {
   font-family: monospace;
-  font-size: 0.95rem;
+  font-size: 1.35rem;
   font-weight: 700;
   background-color: var(--color-primary-subtle);
   color: var(--color-primary-dark);
-  padding: 0.12rem 0.5rem;
+  padding: 0.2rem 0.75rem;
   border-radius: var(--radius-sm);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   border: 1px dashed var(--color-primary);
-  margin-left: 0.25rem;
+  display: inline-block;
+  margin: 0.2rem 0;
 }
 
-.completion-box {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.75rem;
-  background-color: #FFFFFF;
-  border-radius: 8px;
-  padding: 0.55rem 0.85rem;
-  border: 1px solid var(--color-card-border);
-}
-
-@media (min-width: 680px) {
-  .completion-box {
-    grid-template-columns: 155px 1fr;
-    align-items: center;
-  }
-}
-
-.qr-code-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 0.4rem 0.35rem;
-  background-color: var(--color-bg);
-  border-radius: 6px;
-  border: 1px solid var(--color-card-border);
-}
-
-.qr-img {
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-  margin-bottom: 0.2rem;
-  border-radius: var(--radius-sm);
-  border: 1px solid #EAEAEA;
-}
-
-.auto-status-indicator {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  font-size: 0.65rem;
-  color: var(--color-primary);
-  background-color: var(--color-primary-subtle);
-  padding: 0.15rem 0.45rem;
-  border-radius: var(--radius-full);
+.booking-code-tip {
+  font-size: 0.7rem;
+  color: var(--color-primary-dark);
   margin-top: 0.2rem;
-}
-
-.pulse-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: var(--radius-full);
-  background-color: var(--color-primary);
-  animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-  0% { transform: scale(0.9); opacity: 0.7; }
-  50% { transform: scale(1.3); opacity: 1; }
-  100% { transform: scale(0.9); opacity: 0.7; }
+  display: block;
 }
 
 .summary-table {
   width: 100%;
   border-collapse: collapse;
+  max-width: 440px;
+  margin: 0 auto;
 }
 
 .summary-table td {
-  padding: 0.16rem 0;
+  padding: 0.2rem 0;
   border-bottom: 1px solid var(--color-bg-alt);
   font-size: 0.75rem;
 }
 
 .summary-table td:last-child {
   text-align: right;
-  font-weight: 500;
-}
-
-.code-pill {
-  background-color: var(--color-primary-subtle);
-  color: var(--color-primary-dark);
-  font-family: monospace;
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 0.05rem 0.35rem;
-  border-radius: var(--radius-sm);
-}
-
-/* Success Card - Gọn gàng, vừa khít 1 màn hình */
-.success-card-wrap {
-  background: var(--color-accent-green-light);
-  border: 1.5px solid var(--color-accent-green);
-  border-radius: var(--radius-lg);
-  padding: 0.85rem 1.25rem;
-  text-align: center;
-}
-
-.success-badge-large {
-  display: inline-block;
-  background-color: #FFFFFF;
-  border: 1.5px dashed var(--color-accent-green);
-  border-radius: var(--radius-md);
-  padding: 0.35rem 1.25rem;
-  margin: 0.4rem 0;
-}
-
-.success-badge-code {
-  font-family: monospace;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--color-primary-dark);
-  letter-spacing: 0.08em;
-}
-
-/* ==========================================================================
-   HIDDEN MANAGER AUTH MODAL & FINANCIAL DASHBOARD
-   ========================================================================== */
-.manager-modal {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(56, 44, 41, 0.7);
-  backdrop-filter: blur(8px);
-  z-index: 200;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-}
-
-.manager-modal.active {
-  display: flex;
-  animation: fadeIn 0.3s ease;
-}
-
-.manager-modal-content {
-  background-color: var(--color-bg);
-  width: 100%;
-  max-width: 1160px;
-  max-height: 92vh;
-  border-radius: var(--radius-xl);
-  overflow-y: auto;
-  box-shadow: 0 24px 60px rgba(0,0,0,0.3);
-  border: 1px solid var(--color-card-border);
-}
-
-.manager-header {
-  padding: 1.25rem 2rem;
-  background-color: var(--color-primary-dark);
-  color: #FFFFFF;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-.google-auth-box {
-  max-width: 440px;
-  margin: 4rem auto;
-  background: #FFFFFF;
-  padding: 2.5rem;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--color-card-border);
-  text-align: center;
-}
-
-.btn-google {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  width: 100%;
-  padding: 0.75rem 1.25rem;
-  border: 1px solid #DADCE0;
-  border-radius: var(--radius-sm);
-  background-color: #FFFFFF;
-  font-size: 0.88rem;
-  font-weight: 500;
-  color: #3C4043;
-  transition: all var(--transition-fast);
-  margin: 1.5rem 0;
-}
-
-.btn-google:hover {
-  background-color: #F8F9FA;
-  box-shadow: 0 1px 3px rgba(60,64,67,0.15);
-}
-
-/* Financial Dashboard Tables & KPI */
-.finance-kpi-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.25rem;
-  margin: 2rem 0;
-}
-
-.kpi-card {
-  background-color: #FFFFFF;
-  padding: 1.5rem;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-card-border);
-  box-shadow: var(--shadow-sm);
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-
-.kpi-label {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-text-light);
-  font-weight: 600;
-}
-
-.kpi-value {
-  font-family: var(--font-serif);
-  font-size: 1.85rem;
-  font-weight: 600;
-  color: var(--color-primary-dark);
-}
-
-.finance-charts-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-@media (min-width: 992px) {
-  .finance-charts-grid {
-    grid-template-columns: 1.4fr 0.8fr;
-  }
-}
-
-.chart-card {
-  background-color: #FFFFFF;
-  border-radius: var(--radius-md);
-  padding: 1.75rem;
-  border: 1px solid var(--color-card-border);
-}
-
-.admin-table-wrap {
-  background-color: #FFFFFF;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-card-border);
-  overflow-x: auto;
-}
-
-.admin-table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left;
-}
-
-.admin-table th {
-  background-color: var(--color-bg);
-  padding: 0.85rem 1rem;
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-text-muted);
-  font-weight: 600;
-  border-bottom: 1px solid var(--color-card-border);
-}
-
-.admin-table td {
-  padding: 0.95rem 1rem;
-  font-size: 0.85rem;
-  border-bottom: 1px solid var(--color-bg-alt);
-}
-
-.status-tag {
-  display: inline-block;
-  padding: 0.2rem 0.6rem;
-  border-radius: var(--radius-full);
-  font-size: 0.72rem;
-  font-weight: 600;
-}
-
-.status-tag.paid {
-  background-color: var(--color-success-light);
-  color: var(--color-success);
 }
 
 /* ==========================================================================
@@ -1697,19 +1447,6 @@ a {
   color: rgba(255, 255, 255, 0.6);
 }
 
-.hidden-manager-trigger {
-  cursor: pointer;
-  opacity: 0.45;
-  transition: opacity var(--transition-fast);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-}
-
-.hidden-manager-trigger:hover {
-  opacity: 1;
-}
-
 .floating-contacts {
   position: fixed;
   bottom: 2rem;
@@ -1743,7 +1480,7 @@ a {
 }
 
 /* ==========================================================================
-   ANATOMY MODAL WITH 3D HUMAN ATLAS (360° ROTATING & MUSCLE HIGHLIGHTS)
+   ANATOMY MODAL WITH 3D HUMAN ATLAS (1-SCREEN VIEWPORT OPTIMIZED)
    ========================================================================== */
 .anatomy-modal {
   position: fixed;
@@ -1755,7 +1492,7 @@ a {
   display: none;
   align-items: center;
   justify-content: center;
-  padding: 1.25rem;
+  padding: 1rem;
 }
 
 .anatomy-modal.active {
@@ -1765,24 +1502,24 @@ a {
 
 .anatomy-content-atlas {
   background-color: #FFFFFF;
-  max-width: 1160px;
+  max-width: 1100px;
   width: 95vw;
-  height: 92vh;
-  max-height: 740px;
+  height: 90vh;
+  max-height: 720px;
   min-height: 480px;
   border-radius: var(--radius-xl);
   padding: 0.75rem 1.25rem;
   border: 1px solid var(--color-card-border);
   box-shadow: 0 24px 70px rgba(0,0,0,0.22);
   position: relative;
-  overflow: hidden; /* KHÔNG CUỘN TRANG (FITS 100% TRONG WINDOW) */
+  overflow: hidden; /* FITS 100% TRONG MÀN HÌNH */
   display: flex;
   flex-direction: column;
 }
 
 .anatomy-atlas-grid {
   display: grid;
-  grid-template-columns: 1fr 1.25fr;
+  grid-template-columns: 1.15fr 1fr;
   gap: 1.25rem;
   height: 100%;
   flex: 1;
@@ -1790,19 +1527,7 @@ a {
   align-items: stretch;
 }
 
-@media (max-width: 880px) {
-  .anatomy-content-atlas {
-    height: 94vh;
-    max-height: none;
-    overflow-y: auto;
-  }
-  .anatomy-atlas-grid {
-    grid-template-columns: 1fr;
-    height: auto;
-  }
-}
-
-/* Cột 1: 3D Human Atlas Viewer - Tone màu trắng sáng chuẩn y khoa */
+/* Cột 1: 3D Human Atlas Viewer */
 .atlas-viewer-column {
   height: 100%;
   display: flex;
@@ -1844,18 +1569,103 @@ a {
   display: block;
 }
 
-/* Cột 2: Medical Details - Hiển thị gọn gàng trên 1 trang, dàn đều thoáng đãng */
+/* Loading Spinner State cho 3D Atlas Viewer */
+.atlas-loading-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  pointer-events: all;
+  padding: 1rem;
+}
+
+.atlas-loading-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.atlas-spinner-box {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.65rem;
+}
+
+.atlas-spinner-ring {
+  position: absolute;
+  inset: 0;
+  border: 3px solid rgba(139, 94, 73, 0.15);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spinAtlas 0.9s linear infinite;
+}
+
+@keyframes spinAtlas {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.atlas-loading-icon {
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.atlas-loading-title {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+  margin-bottom: 0.15rem;
+}
+
+.atlas-loading-text {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.6rem;
+}
+
+.atlas-loading-bar-wrap {
+  width: 140px;
+  height: 4px;
+  background: rgba(139, 94, 73, 0.12);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.atlas-loading-bar {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary), #B83A2E);
+  border-radius: var(--radius-full);
+  transition: width 0.2s ease-out;
+}
+
+/* Cột 2: Medical Details - Gọn gàng, không nhảy chữ */
 .atlas-details-column {
   height: 100%;
   display: flex;
   flex-direction: column;
   min-height: 0;
   overflow: hidden;
+  justify-content: space-between;
 }
 
 .atlas-package-tabs {
   display: flex;
-  gap: 0.4rem;
+  gap: 0.35rem;
   border-bottom: 1px solid var(--color-card-border);
   padding-bottom: 0.35rem;
   margin-bottom: 0.35rem;
@@ -1863,7 +1673,7 @@ a {
 }
 
 .atlas-tab-btn {
-  padding: 0.3rem 0.8rem;
+  padding: 0.3rem 0.65rem;
   border-radius: var(--radius-full);
   font-size: 0.76rem;
   font-weight: 500;
@@ -1872,6 +1682,8 @@ a {
   color: var(--color-text-muted);
   cursor: pointer;
   transition: all var(--transition-fast);
+  flex: 1;
+  text-align: center;
 }
 
 .atlas-tab-btn:hover {
@@ -1893,7 +1705,6 @@ a {
   min-height: 0;
 }
 
-/* Khung nội dung chi tiết gói */
 .atlas-card-body-inner {
   display: flex;
   flex-direction: column;
@@ -1903,20 +1714,10 @@ a {
   overflow: hidden;
 }
 
-.atlas-service-header {
-  margin-bottom: 0.2rem;
-  flex-shrink: 0;
-}
-
-.atlas-impact-banner {
-  background-color: var(--color-primary-subtle);
-  padding: 0.28rem 0.7rem;
-  border-radius: var(--radius-sm);
-  border-left: 3px solid var(--color-primary);
-  font-size: 0.73rem;
-  line-height: 1.3;
-  color: var(--color-primary-dark);
-  margin-top: 0.18rem;
+.atlas-muscles-section {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 
 .atlas-section-subtitle {
@@ -1925,80 +1726,326 @@ a {
   letter-spacing: 0.08em;
   font-weight: 700;
   color: var(--color-text-dark);
-  margin: 0.25rem 0 0.18rem;
+  margin: 0.25rem 0 0.3rem;
   flex-shrink: 0;
 }
 
-/* Lưới 2 cột cho các nhóm cơ để luôn vừa vặn 1 trang nhưng thoáng đãng dễ đọc */
-.atlas-muscles-grid {
+/* Lưới Chip Nhóm Cơ: Gọn gàng, nhỏ chữ, tap/click để highlight */
+.atlas-muscles-chips {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.28rem 0.5rem;
-  margin-bottom: 0.25rem;
-  flex: none;
+  gap: 0.32rem 0.45rem;
+  margin-bottom: 0.35rem;
 }
 
-.interactive-muscle-card {
-  background: var(--color-bg);
-  padding: 0.36rem 0.6rem;
-  border-radius: 7px;
-  border: 1.5px solid var(--color-card-border);
-  cursor: pointer;
-  transition: all var(--transition-fast);
+.muscle-chip {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0.08rem;
-}
-
-.interactive-muscle-card:hover, .interactive-muscle-card.active {
-  border-color: #00A8B5;
-  background-color: rgba(0, 168, 181, 0.08);
-  transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(0, 168, 181, 0.22);
-}
-
-.interactive-muscle-card.active {
-  border-color: #00A8B5;
-  box-shadow: 0 0 0 1px #00A8B5;
-}
-
-.muscle-name-title {
-  font-weight: 600;
-  font-size: 0.78rem;
-  color: var(--color-primary-dark);
-}
-
-.muscle-desc-text {
-  font-size: 0.67rem;
-  color: var(--color-text-muted);
-  line-height: 1.25;
-}
-
-/* Lưới 2 cột cho các lợi ích phục hồi */
-.atlas-benefits-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.16rem 0.65rem;
-  font-size: 0.7rem;
-  margin-bottom: 0.25rem;
-  flex-shrink: 0;
-}
-
-.atlas-benefit-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.32rem;
-  color: var(--color-text-dark);
-  line-height: 1.25;
-}
-
-/* Nút đặt chỗ gói */
-.atlas-actions-row {
-  display: flex;
-  justify-content: flex-end;
   align-items: center;
-  border-top: 1px solid var(--color-card-border);
-  padding-top: 0.35rem;
+  gap: 0.3rem;
+  padding: 0.32rem 0.5rem;
+  background: var(--color-bg);
+  border: 1px solid var(--color-card-border);
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.74rem;
+  font-weight: 500;
+  color: var(--color-text-dark);
+  cursor: pointer;
+  text-align: left;
+  line-height: 1.25;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.muscle-chip .chip-star {
+  color: var(--color-primary);
+  font-size: 0.65rem;
   flex-shrink: 0;
+}
+
+.muscle-chip .chip-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.muscle-chip:hover {
+  border-color: var(--color-primary);
+  background: #FFFFFF;
+  color: var(--color-primary-dark);
+  transform: translateY(-1px);
+}
+
+.muscle-chip.active {
+  background: var(--color-primary-subtle);
+  border-color: var(--color-primary);
+  color: var(--color-primary-dark);
+  font-weight: 600;
+  box-shadow: 0 1px 4px rgba(139, 94, 73, 0.15);
+}
+
+.atlas-actions-row {
+  margin-top: auto;
+  padding-top: 0.35rem;
+  border-top: 1px solid var(--color-card-border);
+  flex-shrink: 0;
+}
+
+.atlas-book-btn {
+  width: 100%;
+  padding: 0.48rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+}
+
+/* ==========================================================================
+   MOBILE OPTIMIZATIONS: CHI TIẾT TRỊ LIỆU & ĐẶT CHỖ VỪA KHÍT 1 SCREEN
+   ========================================================================== */
+@media (max-width: 880px) {
+  .anatomy-modal {
+    padding: 0.4rem;
+    align-items: center;
+  }
+
+  .anatomy-content-atlas {
+    width: 100%;
+    height: 96dvh;
+    max-height: 96dvh;
+    min-height: 0;
+    padding: 0.55rem 0.65rem 0.45rem;
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* VỪA ĐÚNG 1 SCREEN KHÔNG CUỘN */
+  }
+
+  .anatomy-atlas-grid {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+    gap: 0.4rem;
+  }
+
+  .atlas-viewer-column {
+    flex: 0 0 42dvh;
+    min-height: 180px;
+    max-height: 44dvh;
+    height: auto;
+  }
+
+  .atlas-details-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+    justify-content: space-between;
+  }
+
+  .atlas-package-tabs {
+    gap: 0.3rem;
+    padding-bottom: 0.25rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .atlas-tab-btn {
+    padding: 0.26rem 0.45rem;
+    font-size: 0.72rem;
+  }
+
+  .atlas-section-subtitle {
+    font-size: 0.64rem;
+    margin: 0.15rem 0 0.2rem;
+  }
+
+  .atlas-muscles-chips {
+    gap: 0.22rem 0.3rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .muscle-chip {
+    padding: 0.24rem 0.4rem;
+    font-size: 0.69rem;
+    border-radius: 5px;
+  }
+
+  .atlas-actions-row {
+    padding-top: 0.25rem;
+  }
+
+  .atlas-book-btn {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .booking-window-modal {
+    padding: 0.4rem;
+    align-items: center;
+  }
+
+  .booking-window-dialog {
+    max-height: 94dvh;
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .booking-window-header {
+    padding: 0.5rem 0.8rem;
+  }
+
+  .booking-window-title {
+    font-size: 0.98rem;
+  }
+
+  .booking-steps-nav {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .step-indicator {
+    padding: 0.3rem 0.15rem;
+    font-size: 0.64rem;
+    gap: 0.1rem;
+  }
+
+  .step-num {
+    width: 17px;
+    height: 17px;
+    font-size: 0.62rem;
+  }
+
+  .booking-window-body {
+    padding: 0.6rem 0.8rem 0.7rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .wizard-step-title {
+    font-size: 0.92rem;
+    margin-bottom: 0.1rem;
+  }
+
+  .wizard-step-desc {
+    font-size: 0.7rem;
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
+  }
+
+  /* Bước 1: 5 gói dịch vụ compact */
+  .service-select-grid-balanced {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .service-radio-card {
+    padding: 0.35rem 0.55rem;
+    border-radius: 6px;
+  }
+
+  .service-radio-name {
+    font-size: 0.77rem;
+    font-weight: 600;
+  }
+
+  .service-radio-price {
+    font-size: 0.74rem;
+    font-weight: 700;
+  }
+
+  .service-radio-card p {
+    font-size: 0.66rem !important;
+    margin-top: 0.08rem;
+  }
+
+  /* Bước 2: Chọn ngày & giờ compact */
+  .date-scroll-container {
+    gap: 0.3rem;
+    padding-bottom: 0.25rem;
+  }
+
+  .date-item {
+    min-width: 44px;
+    padding: 0.22rem 0.25rem;
+  }
+
+  .date-day {
+    font-size: 0.6rem;
+  }
+
+  .date-num {
+    font-size: 0.86rem;
+  }
+
+  .slots-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.3rem;
+  }
+
+  .slot-btn {
+    padding: 0.32rem 0.35rem;
+    font-size: 0.74rem;
+  }
+
+  /* Bước 3: Điền thông tin compact */
+  .form-grid {
+    gap: 0.35rem;
+  }
+
+  .form-group {
+    margin-bottom: 0.35rem;
+  }
+
+  .form-label {
+    font-size: 0.71rem;
+    margin-bottom: 0.15rem;
+  }
+
+  .form-input {
+    padding: 0.35rem 0.55rem;
+    font-size: 0.78rem;
+    height: 32px;
+  }
+
+  .form-textarea {
+    padding: 0.35rem 0.55rem;
+    font-size: 0.75rem;
+    height: 48px;
+  }
+
+  /* Bước 4: Hoàn tất & Mã check-in */
+  .booking-code-card {
+    padding: 0.45rem 0.65rem;
+    margin-bottom: 0.45rem;
+  }
+
+  .prominent-code-badge {
+    font-size: 1.15rem;
+    padding: 0.2rem 0.65rem;
+  }
+
+  .summary-table td {
+    padding: 0.18rem 0;
+    font-size: 0.71rem;
+  }
+
+  .wizard-nav-actions {
+    margin-top: 0.45rem !important;
+    padding-top: 0.4rem !important;
+  }
+
+  .wizard-nav-actions .btn {
+    padding: 0.42rem 0.85rem;
+    font-size: 0.76rem;
+  }
 }

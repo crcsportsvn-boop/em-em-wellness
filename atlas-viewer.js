@@ -166,6 +166,36 @@ async function decodeModelPayload(response) {
 }
 
 /**
+ * Điều khiển giao diện Spinner Loading cho Mô hình 3D
+ */
+function updateLoadingUI(percent, text) {
+  const overlay = document.getElementById('atlasLoadingOverlay');
+  const bar = document.getElementById('atlasLoadingBar');
+  const txt = document.getElementById('atlasLoadingText');
+  if (overlay && overlay.classList.contains('hidden')) {
+    overlay.classList.remove('hidden');
+  }
+  if (bar) bar.style.width = `${Math.min(100, Math.max(0, percent))}%`;
+  if (txt && text) txt.textContent = text;
+}
+
+function hideLoadingUI() {
+  const overlay = document.getElementById('atlasLoadingOverlay');
+  if (overlay) {
+    overlay.classList.add('hidden');
+  }
+}
+
+/**
+ * Preload mô hình 3D trong nền
+ */
+export function preloadAtlasViewer() {
+  if (!isLoaded && !isLoading) {
+    initAtlasViewer();
+  }
+}
+
+/**
  * Khởi tạo Viewer 3D Human Atlas
  */
 export async function initAtlasViewer() {
@@ -174,6 +204,9 @@ export async function initAtlasViewer() {
   if (!container || !canvas) return;
 
   if (renderer) {
+    if (isLoaded) {
+      hideLoadingUI();
+    }
     fitCameraToWindow(true);
     return;
   }
@@ -312,6 +345,8 @@ async function loadBodyParts3DData() {
   if (isLoaded || isLoading) return;
   isLoading = true;
 
+  updateLoadingUI(5, 'Đang chuẩn bị mô hình 3D...');
+
   try {
     const catalogRes = await fetch('/models/atlas.json');
     if (!catalogRes.ok) throw new Error('Không thể tải danh mục atlas.json');
@@ -345,14 +380,21 @@ async function loadBodyParts3DData() {
       systemMaterials.set(sys.id, createSystemMaterial(sys));
     });
 
+    updateLoadingUI(15, 'Đang nạp dữ liệu giải phẫu...');
+
     // Tải song song các phân đoạn nhị phân .bin.gz từ local
     let cursor = 0;
+    let completedChunks = 0;
+    const totalChunks = atlasCatalog.chunks.length;
     const workerCount = 4;
     await Promise.all(
       Array.from({ length: workerCount }, async () => {
         while (cursor < atlasCatalog.chunks.length) {
           const chunkIdx = cursor++;
           await loadChunkGeometry(chunkIdx);
+          completedChunks++;
+          const percent = Math.min(95, 15 + Math.round((completedChunks / totalChunks) * 80));
+          updateLoadingUI(percent, `Đang tải mô hình 3D... ${percent}%`);
         }
       })
     );
@@ -360,11 +402,18 @@ async function loadBodyParts3DData() {
     isLoaded = true;
     isLoading = false;
 
-    // Cập nhật trạng thái hiển thị của gói hiện tại
+    // Cập nhật trạng thái hiển thị của gói hiện tại & căn chỉnh camera
     updateActivePackageHighlight(activePackageKey);
+    fitCameraToWindow(true);
+
+    updateLoadingUI(100, 'Hoàn tất mô hình 3D');
+    setTimeout(() => {
+      hideLoadingUI();
+    }, 280);
   } catch (err) {
     console.error('Lỗi khi tải dữ liệu giải phẫu BodyParts3D:', err);
     isLoading = false;
+    hideLoadingUI();
   }
 }
 

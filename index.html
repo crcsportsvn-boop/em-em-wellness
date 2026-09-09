@@ -402,11 +402,6 @@
 
       <div class="footer-bottom">
         <p>© 2026 Êm Êm Wellness. Bảo lưu mọi quyền.</p>
-        <!-- Lối vào bảo mật cho quản lý (biểu tượng ổ khóa hoặc phím tắt Ctrl+Shift+A) -->
-        <span id="footerManagerTrigger" class="hidden-manager-trigger" title="Lối vào nội bộ">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-          <span>Quản lý</span>
-        </span>
       </div>
     </div>
   </footer>
@@ -573,116 +568,56 @@
           <!-- Nút điều hướng cách đều -->
           <div class="wizard-nav-actions">
             <button class="btn btn-secondary" data-wizard-prev="2">← Quay Lại</button>
-            <button class="btn btn-primary" data-wizard-next="4">Tiếp Tục: Hoàn Tất →</button>
+            <button class="btn btn-primary" data-wizard-next="4">Xác Nhận Đặt Chỗ →</button>
           </div>
         </div>
 
-        <!-- BƯỚC 4: HOÀN TẤT & THÔNG BÁO MÃ ĐẶT CHỖ ĐỂ CHECK-IN -->
+        <!-- BƯỚC 4: XÁC NHẬN & MÃ ĐẶT CHỖ (ĐÃ BỎ ĐẶT CỌC / QUÉT QR) -->
         <div id="modalStep4" class="booking-step-content">
-          <!-- Thông báo lưu mã đặt chỗ trước khi chuyển khoản -->
-          <div class="checkin-notice-box">
-            <div class="checkin-notice-icon">📋</div>
-            <div class="checkin-notice-text">
-              <strong>Mã đặt chỗ của bạn: <span id="prominentBookingCode" class="prominent-code-badge">EMEM....</span></strong>
-              <span> • Quý khách vui lòng lưu lại mã này để báo cho nhân viên lễ tân khi đến check-in tại spa.</span>
+          <div class="booking-success-card">
+            <div class="success-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
             </div>
-          </div>
-
-          <!-- Hộp quét mã và trạng thái tự động -->
-          <div id="paymentWaitingBox" class="completion-box">
-            <!-- Cột trái: Quét VietQR -->
-            <div class="qr-code-wrap">
-              <span style="font-size: 0.72rem; font-weight: 600; color: var(--color-primary); text-transform: uppercase; margin-bottom: 0.25rem;">
-                Quét Mã Chuyển Nhanh Tự Động
-              </span>
-              <img id="modalVietQrImg" src="" alt="Mã chuyển khoản giữ chỗ" class="qr-img">
-              <div class="auto-status-indicator">
-                <span class="pulse-dot"></span>
-                <span id="autoPaymentStatusText">Đang tự động lắng nghe biến động số dư...</span>
-              </div>
-              <div style="margin-top: 0.35rem; font-size: 0.72rem; color: var(--color-text-muted); line-height: 1.35;">
-                MB Bank • STK: 0909245911<br>
-                Chủ TK: EM EM WELLNESS SPA
-              </div>
-            </div>
-
-            <!-- Cột phải: Tóm tắt thông tin -->
-            <div>
-              <h4 style="font-family: var(--font-serif); font-size: 1.08rem; color: var(--color-primary-dark); margin-bottom: 0.35rem;">
-                Tóm Tắt Lịch Hẹn
-              </h4>
-
-              <table class="summary-table">
-                <tr>
-                  <td>Dịch vụ đã chọn:</td>
-                  <td id="modalSummaryService">-</td>
-                </tr>
-                <tr>
-                  <td>Thời gian hẹn:</td>
-                  <td id="modalSummaryTime">-</td>
-                </tr>
-                <tr>
-                  <td>Người đặt chỗ:</td>
-                  <td id="modalSummaryGuest">-</td>
-                </tr>
-                <tr>
-                  <td>Tổng giá trị dịch vụ:</td>
-                  <td id="modalSummaryTotal">-</td>
-                </tr>
-                <tr style="color: var(--color-primary); font-weight: 600;">
-                  <td>Số tiền giữ giờ:</td>
-                  <td>100.000 VNĐ</td>
-                </tr>
-                <tr>
-                  <td>Số tiền thanh toán tại spa:</td>
-                  <td>(Khấu trừ trực tiếp 100.000đ)</td>
-                </tr>
-                <tr>
-                  <td>Mã chuyển khoản (Nội dung CK):</td>
-                  <td><span id="modalSummaryCode" class="code-pill">EMEM....</span></td>
-                </tr>
-              </table>
-
-              <p style="font-size: 0.72rem; color: var(--color-text-muted); line-height: 1.35; margin: 0.35rem 0 0.5rem;">
-                Hệ thống tự động xác nhận ngay khi nhận được biến động số dư. Số tiền giữ giờ được trừ thẳng vào hóa đơn khi bạn đến làm dịch vụ.
-              </p>
-
-              <div class="wizard-nav-actions">
-                <button class="btn btn-secondary" data-wizard-prev="3">← Quay Lại</button>
-                <button id="manualCheckPaymentBtn" class="btn btn-primary">
-                  Kiểm Tra Ngay →
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Màn hình chúc mừng sau khi tự động xác nhận thành công -->
-          <div id="modalSuccessConfirmation" class="success-card-wrap" style="display: none;">
-            <div style="width: 38px; height: 38px; border-radius: var(--radius-full); background: var(--color-accent-green); color: #FFFFFF; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 0.45rem;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            </div>
-            <h3 class="heading-md" style="color: var(--color-accent-green); margin-bottom: 0.25rem; font-size: 1.18rem;">
-              Đặt Chỗ Thành Công!
-            </h3>
-            <p style="font-size: 0.8rem; color: var(--color-text-dark); max-width: 500px; margin: 0 auto 0.25rem; line-height: 1.4;">
-              Hệ thống đã tự động khóa khung giờ và chuẩn bị kỹ thuật viên riêng đón tiếp bạn.
+            <h3 class="wizard-step-title" style="color: var(--color-accent-green); margin-bottom: 0.15rem;">Đặt Lịch Thành Công!</h3>
+            <p class="wizard-step-desc" style="margin-bottom: 0.55rem;">
+              Hệ thống đã tự động khóa khung giờ và đón tiếp bạn đúng hẹn.
             </p>
 
-            <!-- Hiển thị mã đặt chỗ to rõ để check-in -->
-            <div class="success-badge-large">
-              <div style="font-size: 0.68rem; letter-spacing: 0.1em; color: var(--color-text-muted); text-transform: uppercase; margin-bottom: 0.15rem;">Mã Đặt Chỗ Check-in Của Bạn</div>
-              <div id="successBookingCode" class="success-badge-code">EMEM....</div>
+            <div class="booking-code-card">
+              <div class="booking-code-label">MÃ ĐẶT CHỖ CHECK-IN</div>
+              <div id="prominentBookingCode" class="prominent-code-badge">EMEM....</div>
+              <div class="booking-code-tip">📌 Quý khách vui lòng cung cấp mã này tại quầy lễ tân khi đến trải nghiệm.</div>
             </div>
-            <p style="font-size: 0.75rem; color: var(--color-primary-dark); font-weight: 500; margin-bottom: 0.75rem;">
-              📌 Quý khách vui lòng lưu lại mã này để báo cho nhân viên lễ tân khi đến check-in.
+
+            <table class="summary-table compact-summary-table">
+              <tr>
+                <td>Dịch vụ đã chọn:</td>
+                <td id="modalSummaryService" style="font-weight: 600; color: var(--color-primary-dark);">-</td>
+              </tr>
+              <tr>
+                <td>Thời gian hẹn:</td>
+                <td id="modalSummaryTime">-</td>
+              </tr>
+              <tr>
+                <td>Khách hàng:</td>
+                <td id="modalSummaryGuest">-</td>
+              </tr>
+              <tr>
+                <td>Chi phí dịch vụ:</td>
+                <td id="modalSummaryTotal" style="font-weight: 700; color: var(--color-primary);">-</td>
+              </tr>
+            </table>
+
+            <p style="font-size: 0.72rem; color: var(--color-text-muted); line-height: 1.35; margin: 0.35rem 0 0.5rem; text-align: center;">
+              Thanh toán trực tiếp tại quầy sau khi quý khách trải nghiệm dịch vụ.
             </p>
 
-            <div style="display: inline-flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center;">
-              <button class="btn btn-primary" style="background-color: var(--color-accent-green); padding: 0.45rem 1.15rem; font-size: 0.82rem;" onclick="closeBookingWindow()">
-                Hoàn Tất & Đóng Cửa Sổ
+            <div class="wizard-nav-actions" style="justify-content: center; gap: 0.6rem; margin-top: 0.2rem; padding-top: 0.2rem; border-top: none;">
+              <button class="btn btn-primary" style="padding: 0.45rem 1.2rem; font-size: 0.8rem;" onclick="closeBookingWindow()">
+                Hoàn Tất & Đóng
               </button>
-              <a href="https://zalo.me/0909245911" target="_blank" class="btn btn-secondary" style="border-color: var(--color-accent-green); color: var(--color-accent-green); padding: 0.45rem 1.15rem; font-size: 0.82rem;">
-                Nhắn Tin Qua Zalo
+              <a href="https://zalo.me/0909245911" target="_blank" class="btn btn-secondary" style="padding: 0.45rem 1.1rem; font-size: 0.8rem; border-color: var(--color-accent-green); color: var(--color-accent-green);">
+                Nhắn Zalo Tư Vấn
               </a>
             </div>
           </div>
@@ -706,6 +641,22 @@
             <!-- Canvas 3D Three.js tự động xoay 360°, kéo để xoay, cuộn để zoom -->
             <div id="atlasCanvasContainer" class="atlas-canvas-container">
               <canvas id="atlasCanvas"></canvas>
+              <!-- Spinner Loading Indicator cho mô hình 3D Atlas -->
+              <div id="atlasLoadingOverlay" class="atlas-loading-overlay">
+                <div class="atlas-spinner-box">
+                  <div class="atlas-spinner-ring"></div>
+                  <div class="atlas-loading-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                      <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07l14.14-14.14" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="atlas-loading-title">Mô Hình Giải Phẫu 3D</div>
+                <div id="atlasLoadingText" class="atlas-loading-text">Đang kết nối mô hình y khoa...</div>
+                <div class="atlas-loading-bar-wrap">
+                  <div id="atlasLoadingBar" class="atlas-loading-bar"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -721,154 +672,6 @@
 
           <div id="anatomyContentBody">
             <!-- Nội dung được sinh từ app.js -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==========================================================================
-       MODAL ẨN: CỔNG QUẢN TRỊ TÀI CHÍNH DÀNH CHO CHỦ & QUẢN LÝ
-       (Mở bằng phím tắt Ctrl+Shift+A hoặc click biểu tượng ổ khóa ở footer)
-       ========================================================================== -->
-  <div id="managerModal" class="manager-modal">
-    <div class="manager-modal-content">
-      <div class="manager-header">
-        <div style="display: flex; align-items: center; gap: 0.75rem;">
-          <h3 style="font-family: var(--font-serif); font-size: 1.35rem;">Khu Vực Quản Trị & Tài Chính</h3>
-          <span style="background: rgba(255, 255, 255, 0.2); font-size: 0.7rem; padding: 0.2rem 0.5rem; border-radius: var(--radius-full);">Nội bộ</span>
-        </div>
-        <button id="closeManagerModalBtn" class="close-btn" style="color: #FFFFFF;">&times;</button>
-      </div>
-
-      <!-- Màn hình xác thực đăng nhập Google / Mã định danh Quản lý -->
-      <div id="managerAuthView" class="google-auth-box">
-        <div style="width: 54px; height: 54px; border-radius: var(--radius-full); background: var(--color-primary-subtle); color: var(--color-primary); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-        </div>
-        <h3 class="heading-md mb-2" style="font-size: 1.3rem; color: var(--color-primary-dark);">Xác Thực Quyền Quản Lý</h3>
-        <p style="font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.5;">
-          Trang chỉ dành cho Chủ cơ sở và Quản lý để xem dòng tiền, báo cáo doanh thu và chi phí hoạt động.
-        </p>
-
-        <!-- Nút Đăng nhập Google -->
-        <button id="googleLoginBtn" class="btn-google">
-          <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
-          <span>Đăng nhập với tài khoản Google Quản Lý</span>
-        </button>
-
-        <div style="display: flex; align-items: center; gap: 0.75rem; margin: 1rem 0; color: var(--color-text-light); font-size: 0.78rem;">
-          <div style="flex: 1; height: 1px; background: var(--color-card-border);"></div>
-          <span>hoặc nhập mã quản lý</span>
-          <div style="flex: 1; height: 1px; background: var(--color-card-border);"></div>
-        </div>
-
-        <div style="display: flex; gap: 0.5rem;">
-          <input type="password" id="managerIdInput" class="form-input" placeholder="Mã PIN (123456)" style="text-align: center; letter-spacing: 0.3em;">
-          <button id="submitManagerIdBtn" class="btn btn-primary" style="padding: 0.65rem 1.25rem;">Vào</button>
-        </div>
-        <p id="managerAuthError" style="display: none; color: var(--color-danger); font-size: 0.8rem; margin-top: 0.5rem;">
-          Tài khoản hoặc mã không hợp lệ.
-        </p>
-      </div>
-
-      <!-- Bảng điều khiển tài chính sau khi xác thực thành công -->
-      <div id="managerDashboardView" style="display: none; padding: 2rem;">
-        <!-- Thẻ KPI -->
-        <div class="finance-kpi-grid">
-          <div class="kpi-card">
-            <span class="kpi-label">Tổng Doanh Thu</span>
-            <span id="dashTotalRev" class="kpi-value">0 đ</span>
-            <span style="font-size: 0.75rem; color: var(--color-success);">Bao gồm cọc web, tại quầy và combo</span>
-          </div>
-
-          <div class="kpi-card">
-            <span class="kpi-label">Tổng Chi Phí Hoạt Động</span>
-            <span id="dashTotalExp" class="kpi-value">0 đ</span>
-            <span style="font-size: 0.75rem; color: var(--color-danger);">Mặt bằng, điện nước, vật tư, lương kỹ thuật viên</span>
-          </div>
-
-          <div class="kpi-card">
-            <span class="kpi-label">Lợi Nhuận Thực Nhận</span>
-            <span id="dashNetProfit" class="kpi-value">0 đ</span>
-            <span style="font-size: 0.75rem; color: var(--color-text-muted);">Doanh thu trừ tổng chi phí</span>
-          </div>
-
-          <div class="kpi-card">
-            <span class="kpi-label">Tỷ Suất Sinh Lời</span>
-            <span id="dashMargin" class="kpi-value">0%</span>
-            <span style="font-size: 0.75rem; color: var(--color-text-muted);">Tỷ lệ lợi nhuận trên doanh thu</span>
-          </div>
-        </div>
-
-        <!-- Biểu đồ phân tích -->
-        <div class="finance-charts-grid">
-          <div class="chart-card">
-            <h4 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--color-primary-dark); margin-bottom: 1rem;">
-              Doanh Thu vs Chi Phí & Lợi Nhuận
-            </h4>
-            <div style="height: 220px; position: relative;">
-              <canvas id="financeBarCanvas"></canvas>
-            </div>
-          </div>
-
-          <div class="chart-card">
-            <h4 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--color-primary-dark); margin-bottom: 1rem;">
-              Cơ Cấu Chi Phí Vận Hành
-            </h4>
-            <div style="height: 220px; position: relative;">
-              <canvas id="financePieCanvas"></canvas>
-            </div>
-          </div>
-        </div>
-
-        <!-- Thanh điều hướng tab & Xuất dữ liệu -->
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 1rem;">
-          <div style="display: flex; gap: 0.5rem;">
-            <button class="btn btn-secondary admin-tab-btn active" data-tab="tabRev">Dòng Tiền Thu</button>
-            <button class="btn btn-secondary admin-tab-btn" data-tab="tabExp">Dòng Tiền Chi</button>
-          </div>
-
-          <button id="exportFinanceCsvBtn" class="btn btn-primary" style="font-size: 0.75rem; padding: 0.55rem 1rem;">
-            Xuất Báo Cáo Ra Tập Tin
-          </button>
-        </div>
-
-        <!-- Bảng Doanh Thu -->
-        <div id="tabRev" class="finance-tab-pane">
-          <div class="admin-table-wrap">
-            <table class="admin-table">
-              <thead>
-                <tr>
-                  <th>Mã</th>
-                  <th>Kênh Thu</th>
-                  <th>Khách Hàng</th>
-                  <th>Dịch Vụ</th>
-                  <th>Ngày</th>
-                  <th style="text-align: right;">Số Tiền Thực Thu</th>
-                  <th>Trạng Thái</th>
-                </tr>
-              </thead>
-              <tbody id="managerRevTableBody"></tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- Bảng Chi Phí -->
-        <div id="tabExp" class="finance-tab-pane" style="display: none;">
-          <div class="admin-table-wrap">
-            <table class="admin-table">
-              <thead>
-                <tr>
-                  <th>Mã</th>
-                  <th>Hạng Mục</th>
-                  <th>Nội Dung Chi</th>
-                  <th>Ngày</th>
-                  <th style="text-align: right;">Số Tiền Chi</th>
-                </tr>
-              </thead>
-              <tbody id="managerExpTableBody"></tbody>
-            </table>
           </div>
         </div>
       </div>
