@@ -199,6 +199,7 @@ export async function initAtlasViewer() {
     if (isLoaded) {
       hideLoadingUI();
     }
+    startAnimationLoop();
     fitCameraToWindow(true);
     return;
   }
@@ -219,7 +220,7 @@ export async function initAtlasViewer() {
     powerPreference: 'high-performance'
   });
   renderer.setSize(width, height);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.75));
   renderer.setClearColor(0xFFFFFF, 1.0); // Tone màu trắng tinh khiết chuẩn phòng khám y khoa
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -547,9 +548,16 @@ async function loadChunkGeometry(chunkIdx) {
 }
 
 /**
- * Vòng lặp Render & Tự động xoay 360° theo trục thẳng đứng
+ * Điều khiển vòng lặp Render (Tạm dừng khi modal đóng để tiết kiệm 100% CPU/GPU)
  */
-function startAnimationLoop() {
+export function stopAnimationLoop() {
+  if (animId) {
+    cancelAnimationFrame(animId);
+    animId = null;
+  }
+}
+
+export function startAnimationLoop() {
   if (animId) return;
 
   function render() {

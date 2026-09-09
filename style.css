@@ -1536,6 +1536,33 @@ a {
   flex-direction: column;
 }
 
+#closeAnatomyBtn {
+  position: absolute;
+  top: 0.85rem;
+  right: 1.15rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--color-card-border);
+  background: #FFFFFF;
+  color: var(--color-primary);
+  font-size: 1.4rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 40;
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+#closeAnatomyBtn:hover {
+  background: var(--color-bg-alt);
+  color: var(--color-primary-dark);
+  transform: scale(1.08);
+}
+
 .anatomy-atlas-grid {
   display: grid;
   grid-template-columns: 1.15fr 1fr;
@@ -1631,6 +1658,7 @@ a {
   min-height: 0;
   overflow: hidden;
   justify-content: space-between;
+  padding-top: 2.2rem; /* Tịnh tiến các nút và nhóm cơ xuống dưới nút close x */
 }
 
 .atlas-package-tabs {
@@ -1639,6 +1667,7 @@ a {
   border-bottom: 1px solid var(--color-card-border);
   padding-bottom: 0.35rem;
   margin-bottom: 0.35rem;
+  padding-right: 2.4rem;
   flex-shrink: 0;
 }
 
@@ -1814,12 +1843,22 @@ a {
     min-height: 0;
     overflow: hidden;
     justify-content: space-between;
+    padding-top: 0;
+  }
+
+  #closeAnatomyBtn {
+    top: 0.6rem;
+    right: 0.6rem;
+    width: 28px;
+    height: 28px;
+    font-size: 1.2rem;
   }
 
   .atlas-package-tabs {
     gap: 0.3rem;
     padding-bottom: 0.25rem;
     margin-bottom: 0.2rem;
+    padding-right: 0;
   }
 
   .atlas-tab-btn {

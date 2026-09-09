@@ -14,7 +14,9 @@ import {
   updateActivePackageHighlight, 
   highlightMuscleOnHover, 
   resetMuscleHover,
-  preloadAtlasViewer 
+  preloadAtlasViewer,
+  startAnimationLoop,
+  stopAnimationLoop
 } from './atlas-viewer.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -104,17 +106,23 @@ let currentActivePackageKey = 'upper';
 let currentFocusedMuscleId = null;
 
 function preloadAtlasInBackground() {
-  const start = () => {
-    setTimeout(() => {
-      preloadAtlasViewer();
-    }, 800);
+  // Tải ngầm danh mục atlas.json khi rảnh rỗi để không nghẽn băng thông lúc vừa vào trang
+  const lazyWarmup = () => {
+    fetch('/models/atlas.json', { priority: 'low' }).catch(() => {});
   };
 
   if ('requestIdleCallback' in window) {
-    requestIdleCallback(start, { timeout: 2000 });
+    requestIdleCallback(lazyWarmup, { timeout: 3000 });
   } else {
-    window.addEventListener('load', start, { once: true });
+    window.addEventListener('load', () => setTimeout(lazyWarmup, 1500), { once: true });
   }
+
+  // Tiền khởi tạo khi người dùng rê chuột/chuẩn bị nhấn vào nút Chi Tiết Trị Liệu
+  document.querySelectorAll('[data-anatomy]').forEach(btn => {
+    btn.addEventListener('pointerenter', () => {
+      preloadAtlasViewer();
+    }, { once: true });
+  });
 }
 
 /**
@@ -246,6 +254,7 @@ function openAnatomyModal(pkgKey = 'upper') {
 
   // Khởi tạo hoặc cập nhật Three.js atlas
   initAtlasViewer();
+  startAnimationLoop();
 
   // Đảm bảo camera và canvas Three.js luôn vừa khít khung nhìn
   requestAnimationFrame(() => fitCameraToWindow(true));
@@ -256,7 +265,21 @@ function openAnatomyModal(pkgKey = 'upper') {
 function closeAnatomyModal() {
   const modal = document.getElementById('anatomyModal');
   if (modal) modal.classList.remove('active');
+  // Dừng vòng lặp Three.js ngay lập tức để giải phóng 100% tài nguyên CPU/GPU
+  stopAnimationLoop();
 }
+
+// Tạm dừng Three.js khi chuyển tab để chống lag và tiết kiệm pin
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    stopAnimationLoop();
+  } else {
+    const modal = document.getElementById('anatomyModal');
+    if (modal && modal.classList.contains('active')) {
+      startAnimationLoop();
+    }
+  }
+});
 
 // Gán toàn cục vào window để tương thích với HTML inline calls
 window.openBookingWithService = function(name, duration) {
