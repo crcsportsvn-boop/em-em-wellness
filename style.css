@@ -1543,23 +1543,33 @@ a {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  border: 1px solid var(--color-card-border);
+  border: 1px solid rgba(139, 94, 73, 0.22);
   background: #FFFFFF;
-  color: var(--color-primary);
-  font-size: 1.4rem;
-  line-height: 1;
+  color: var(--color-primary-dark);
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0;
+  margin: 0;
   cursor: pointer;
   z-index: 40;
   transition: all var(--transition-fast);
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  outline: none;
+}
+
+#closeAnatomyBtn svg {
+  display: block;
+  width: 12px;
+  height: 12px;
+  pointer-events: none;
+  margin: auto;
 }
 
 #closeAnatomyBtn:hover {
-  background: var(--color-bg-alt);
-  color: var(--color-primary-dark);
+  background: var(--color-primary-subtle);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
   transform: scale(1.08);
 }
 
@@ -1851,7 +1861,11 @@ a {
     right: 0.6rem;
     width: 28px;
     height: 28px;
-    font-size: 1.2rem;
+  }
+
+  #closeAnatomyBtn svg {
+    width: 10px;
+    height: 10px;
   }
 
   .atlas-package-tabs {
