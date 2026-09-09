@@ -180,20 +180,21 @@ a {
   width: 100%;
   z-index: 100;
   transition: all var(--transition-normal);
-  padding: 1rem 0;
-  background-color: rgba(248, 245, 240, 0.94);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(139, 94, 73, 0.08);
+  padding: 0.75rem 0;
+  background-color: rgba(36, 24, 20, 0.82);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.22);
 }
 
 .site-header.scrolled {
-  padding: 0.65rem 0;
-  background-color: rgba(255, 255, 255, 0.32);
-  backdrop-filter: blur(25px) saturate(190%);
-  -webkit-backdrop-filter: blur(25px) saturate(190%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  padding: 0.6rem 0;
+  background-color: rgba(26, 17, 14, 0.90);
+  backdrop-filter: blur(24px) saturate(200%);
+  -webkit-backdrop-filter: blur(24px) saturate(200%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.35);
 }
 
 .header-inner {
@@ -210,14 +211,23 @@ a {
 }
 
 .brand-home-link:hover {
-  opacity: 0.88;
+  opacity: 0.9;
 }
 
-.header-logo-icon {
-  height: 44px;
+.header-logo-img {
+  height: 38px;
   width: auto;
   object-fit: contain;
-  border-radius: var(--radius-sm);
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.35));
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.brand-home-link:hover .header-logo-img {
+  transform: scale(1.03);
+}
+
+.nowrap {
+  white-space: nowrap;
 }
 
 .header-actions {
@@ -710,13 +720,15 @@ a {
   display: inline-block;
   background: rgba(255, 255, 255, 0.15);
   color: #F8F5F0;
-  font-size: 0.7rem;
-  font-weight: 500;
+  font-size: 0.58rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  padding: 0.3rem 0.75rem;
+  letter-spacing: 0.04em;
+  padding: 0.25rem 0.65rem;
   border-radius: var(--radius-full);
   margin-bottom: 0.85rem;
+  white-space: nowrap;
+  max-width: 100%;
 }
 
 .combo-title {
@@ -733,10 +745,10 @@ a {
 }
 
 .therapist-card {
-  background-color: var(--color-card);
-  border-radius: var(--radius-xl);
+  background-color: var(--color-surface);
   border: 1px solid var(--color-card-border);
-  padding: 3.5rem 2rem;
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 1.75rem;
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
@@ -761,6 +773,8 @@ a {
 .cert-badge {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  text-align: center;
   gap: 0.5rem;
   background-color: var(--color-accent-green-light);
   color: var(--color-accent-green);
@@ -769,6 +783,7 @@ a {
   padding: 0.4rem 1.15rem;
   border-radius: var(--radius-full);
   margin-bottom: 1.15rem;
+  line-height: 1.45;
 }
 
 .therapist-modules-grid {
