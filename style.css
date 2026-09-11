@@ -435,7 +435,7 @@ a {
 .quote-author {
   font-size: 0.82rem;
   letter-spacing: 0.18em;
-  text-transform: uppercase;
+  text-transform: none;
   color: var(--color-text-muted);
   margin-top: 0.5rem;
   display: block;
