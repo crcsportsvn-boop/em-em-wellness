@@ -1342,43 +1342,61 @@ a {
   margin-bottom: 0.35rem;
 }
 
-.booking-code-card {
-  background: #FFFFFF;
-  border: 1.5px dashed var(--color-accent-green);
+.booking-notice-card {
+  background: var(--color-primary-subtle);
+  border: 1px solid var(--color-card-border);
   border-radius: var(--radius-md);
-  padding: 0.5rem 0.75rem;
-  margin: 0.4rem auto 0.6rem;
-  max-width: 360px;
+  padding: 0.75rem 1rem;
+  margin: 0.45rem auto 0.75rem;
+  max-width: 400px;
+  text-align: left;
 }
 
-.booking-code-label {
-  font-size: 0.65rem;
-  letter-spacing: 0.08em;
-  color: var(--color-text-muted);
-  text-transform: uppercase;
-  margin-bottom: 0.15rem;
-  display: block;
-}
-
-.prominent-code-badge {
-  font-family: monospace;
-  font-size: 1.35rem;
-  font-weight: 700;
-  background-color: var(--color-primary-subtle);
+.booking-notice-text {
+  font-size: 0.78rem;
+  line-height: 1.5;
   color: var(--color-primary-dark);
-  padding: 0.2rem 0.75rem;
-  border-radius: var(--radius-sm);
-  letter-spacing: 0.1em;
-  border: 1px dashed var(--color-primary);
-  display: inline-block;
-  margin: 0.2rem 0;
+  margin: 0;
+  font-weight: 500;
 }
 
-.booking-code-tip {
-  font-size: 0.7rem;
-  color: var(--color-primary-dark);
-  margin-top: 0.2rem;
-  display: block;
+.step4-actions {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  margin-top: 0.55rem !important;
+  padding-top: 0.35rem !important;
+  border-top: none !important;
+}
+
+.step4-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 40px !important;
+  min-width: 145px !important;
+  padding: 0 1.25rem !important;
+  font-size: 0.82rem !important;
+  font-weight: 500 !important;
+  border-radius: var(--radius-full) !important;
+  box-sizing: border-box !important;
+  text-align: center !important;
+  line-height: 1 !important;
+  text-decoration: none !important;
+  transition: all var(--transition-fast) !important;
+}
+
+.step4-btn.btn-secondary {
+  border: 1.5px solid var(--color-accent-green) !important;
+  color: var(--color-accent-green) !important;
+  background-color: transparent !important;
+}
+
+.step4-btn.btn-secondary:hover {
+  background-color: rgba(67, 107, 82, 0.08) !important;
+  border-color: var(--color-accent-green) !important;
+  color: var(--color-accent-green) !important;
 }
 
 .summary-table {
@@ -1497,6 +1515,24 @@ a {
 .floating-btn.zalo {
   background-color: #0068FF;
 }
+
+.lang-switch-btn {
+  background-color: var(--color-primary) !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  cursor: pointer !important;
+  font-family: var(--font-sans) !important;
+  font-weight: 700 !important;
+  font-size: 0.78rem !important;
+  letter-spacing: 0.05em !important;
+  line-height: 1 !important;
+  padding: 0 !important;
+}
+
+.lang-switch-btn:hover {
+  background-color: var(--color-primary-dark) !important;
+}
+
 
 /* ==========================================================================
    ANATOMY MODAL WITH 3D HUMAN ATLAS (1-SCREEN VIEWPORT OPTIMIZED)

@@ -18,8 +18,10 @@ import {
   startAnimationLoop,
   stopAnimationLoop
 } from './atlas-viewer.js';
+import { initI18n, getCurrentLang, t } from './i18n.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+  initI18n();
   initHeaderScroll();
   initBookingWindow();
   initAnatomyModals();
@@ -52,52 +54,58 @@ const therapyDetails = {
   upper: {
     key: "upper",
     title: "Trị Liệu Thân Trên",
+    titleEn: "Upper Body Therapy",
     duration: "60 phút",
+    durationEn: "60 minutes",
     activeMuscles: ['scm', 'splenius', 'trapezius', 'rhomboids', 'rotator_cuff', 'deltoids', 'pectorals', 'arm_biceps_triceps', 'arm_forearm'],
     muscles: [
-      { id: 'scm', name: "Cơ ức đòn chũm & cổ" },
-      { id: 'trapezius', name: "Cơ thang vai gáy" },
-      { id: 'rhomboids', name: "Cơ trám bả vai" },
-      { id: 'rotator_cuff', name: "Chóp xoay khớp vai" },
-      { id: 'deltoids', name: "Cơ Delta bả vai" },
-      { id: 'pectorals', name: "Cơ ngực lớn & nhỏ" },
-      { id: 'arm_biceps_triceps', name: "Cơ bắp tay trước - sau" },
-      { id: 'arm_forearm', name: "Cơ cẳng tay & cổ tay" }
+      { id: 'scm', name: "Cơ ức đòn chũm & cổ", nameEn: "Sternocleidomastoid & neck" },
+      { id: 'trapezius', name: "Cơ thang vai gáy", nameEn: "Trapezius muscle" },
+      { id: 'rhomboids', name: "Cơ trám bả vai", nameEn: "Rhomboids" },
+      { id: 'rotator_cuff', name: "Chóp xoay khớp vai", nameEn: "Rotator cuff" },
+      { id: 'deltoids', name: "Cơ Delta bả vai", nameEn: "Deltoids" },
+      { id: 'pectorals', name: "Cơ ngực lớn & nhỏ", nameEn: "Pectoral muscles" },
+      { id: 'arm_biceps_triceps', name: "Cơ bắp tay trước - sau", nameEn: "Biceps & triceps" },
+      { id: 'arm_forearm', name: "Cơ cẳng tay & cổ tay", nameEn: "Forearm & wrist flexors" }
     ]
   },
   lower: {
     key: "lower",
     title: "Trị Liệu Thân Dưới",
+    titleEn: "Lower Body Therapy",
     duration: "60 phút",
+    durationEn: "60 minutes",
     activeMuscles: ['quadratus_lumborum', 'erector_spinae', 'gluteals', 'piriformis', 'quadriceps', 'hamstrings_upper', 'calves', 'shin_foot'],
     muscles: [
-      { id: 'quadratus_lumborum', name: "Cơ vuông thắt lưng" },
-      { id: 'erector_spinae', name: "Cơ dựng sống thắt lưng" },
-      { id: 'gluteals', name: "Nhóm cơ mông" },
-      { id: 'piriformis', name: "Cơ hình lê (khớp háng)" },
-      { id: 'quadriceps', name: "Cơ tứ đầu đùi trước" },
-      { id: 'hamstrings_upper', name: "Cơ gân kheo đùi sau" },
-      { id: 'calves', name: "Cơ bắp chuối & gân gót" },
-      { id: 'shin_foot', name: "Cơ cẳng chân & mu chân" }
+      { id: 'quadratus_lumborum', name: "Cơ vuông thắt lưng", nameEn: "Quadratus lumborum" },
+      { id: 'erector_spinae', name: "Cơ dựng sống thắt lưng", nameEn: "Erector spinae" },
+      { id: 'gluteals', name: "Nhóm cơ mông", nameEn: "Gluteal muscles" },
+      { id: 'piriformis', name: "Cơ hình lê (khớp háng)", nameEn: "Piriformis (hip joint)" },
+      { id: 'quadriceps', name: "Cơ tứ đầu đùi trước", nameEn: "Quadriceps" },
+      { id: 'hamstrings_upper', name: "Cơ gân kheo đùi sau", nameEn: "Hamstrings" },
+      { id: 'calves', name: "Cơ bắp chuối & gân gót", nameEn: "Calves & Achilles" },
+      { id: 'shin_foot', name: "Cơ cẳng chân & mu chân", nameEn: "Shin & foot dorsum" }
     ]
   },
   full: {
     key: "full",
     title: "Trị Liệu Toàn Thân",
+    titleEn: "Full Body Therapy",
     duration: "90 phút",
+    durationEn: "90 minutes",
     activeMuscles: [
       'full_neck_head', 'full_upper_back_chest', 'full_arms_hands',
       'full_lower_back', 'full_glutes_hip', 'full_thighs', 'full_calves', 'full_feet'
     ],
     muscles: [
-      { id: 'full_neck_head', name: "Cổ vai gáy & chẩm đầu" },
-      { id: 'full_upper_back_chest', name: "Lưng trên & lồng ngực" },
-      { id: 'full_arms_hands', name: "Hai cánh tay & cổ tay" },
-      { id: 'full_lower_back', name: "Thắt lưng & dựng sống" },
-      { id: 'full_glutes_hip', name: "Khung chậu & cơ mông" },
-      { id: 'full_thighs', name: "Đùi trước & đùi sau" },
-      { id: 'full_calves', name: "Bắp chuối & gân gót" },
-      { id: 'full_feet', name: "Cẳng chân & bàn chân" }
+      { id: 'full_neck_head', name: "Cổ vai gáy & chẩm đầu", nameEn: "Neck, shoulders & occiput" },
+      { id: 'full_upper_back_chest', name: "Lưng trên & lồng ngực", nameEn: "Upper back & thoracic" },
+      { id: 'full_arms_hands', name: "Hai cánh tay & cổ tay", nameEn: "Arms & wrists" },
+      { id: 'full_lower_back', name: "Thắt lưng & dựng sống", nameEn: "Lumbar spine & erectors" },
+      { id: 'full_glutes_hip', name: "Khung chậu & cơ mông", nameEn: "Pelvis & gluteals" },
+      { id: 'full_thighs', name: "Đùi trước & đùi sau", nameEn: "Anterior & posterior thighs" },
+      { id: 'full_calves', name: "Bắp chuối & gân gót", nameEn: "Calves & Achilles" },
+      { id: 'full_feet', name: "Cẳng chân & bàn chân", nameEn: "Lower legs & feet" }
     ]
   }
 };
@@ -155,23 +163,31 @@ function renderAtlasDetailsColumn(data) {
   const body = document.getElementById('anatomyContentBody');
   if (!body) return;
 
+  const isEn = getCurrentLang() === 'en';
+  const pkgTitle = isEn ? (data.titleEn || data.title) : data.title;
+  const pkgDuration = isEn ? (data.durationEn || data.duration) : data.duration;
+  const subtitleText = isEn ? "KEY TARGETED MUSCLE GROUPS:" : "CÁC NHÓM CƠ TRỊ LIỆU TRỌNG ĐIỂM:";
+  const bookBtnText = isEn ? `Book This Session (${pkgDuration})` : `Đặt Chỗ Gói Này (${pkgDuration})`;
+
   body.innerHTML = `
     <div class="atlas-card-body-inner">
       <div class="atlas-muscles-section">
-        <div class="atlas-section-subtitle">CÁC NHÓM CƠ TRỊ LIỆU TRỌNG ĐIỂM:</div>
+        <div class="atlas-section-subtitle">${subtitleText}</div>
         <div class="atlas-muscles-chips">
-          ${data.muscles.map(m => `
-            <button type="button" class="muscle-chip ${currentFocusedMuscleId === m.id ? 'active' : ''}" data-muscle-id="${m.id}" title="${m.name}">
+          ${data.muscles.map(m => {
+            const mName = isEn ? (m.nameEn || m.name) : m.name;
+            return `
+            <button type="button" class="muscle-chip ${currentFocusedMuscleId === m.id ? 'active' : ''}" data-muscle-id="${m.id}" title="${mName}">
               <span class="chip-star">✦</span>
-              <span class="chip-name">${m.name}</span>
+              <span class="chip-name">${mName}</span>
             </button>
-          `).join('')}
+          `}).join('')}
         </div>
       </div>
 
       <div class="atlas-actions-row">
-        <button type="button" class="btn btn-primary atlas-book-btn" onclick="openBookingWithService('${data.title}', '${data.duration}')">
-          Đặt Chỗ Gói Này (${data.duration})
+        <button type="button" class="btn btn-primary atlas-book-btn" onclick="openBookingWithService('${pkgTitle}', '${pkgDuration}')">
+          ${bookBtnText}
         </button>
       </div>
     </div>
@@ -301,7 +317,6 @@ let bookingState = {
   customerName: "",
   customerPhone: "",
   customerNote: "",
-  bookingCode: "",
   currentStep: 1
 };
 
@@ -367,7 +382,10 @@ function generateDateList() {
   const container = document.getElementById('modalDateScrollContainer');
   if (!container) return;
 
-  const daysOfWeek = ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'];
+  const isEn = getCurrentLang() === 'en';
+  const daysOfWeek = isEn 
+    ? ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+    : ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'];
   const today = new Date();
   container.innerHTML = '';
 
@@ -375,16 +393,17 @@ function generateDateList() {
     const d = new Date();
     d.setDate(today.getDate() + i);
 
-    const dayName = i === 0 ? 'Hôm nay' : daysOfWeek[d.getDay()];
+    const dayName = i === 0 ? (isEn ? 'Today' : 'Hôm nay') : daysOfWeek[d.getDay()];
     const dateNum = d.getDate();
     const monthNum = d.getMonth() + 1;
+    const monthText = isEn ? `Month ${monthNum}` : `Tháng ${monthNum}`;
 
     const dateItem = document.createElement('div');
     dateItem.className = `date-item ${i === 0 ? 'selected' : ''}`;
     dateItem.innerHTML = `
       <div class="date-day">${dayName}</div>
       <div class="date-num">${dateNum}</div>
-      <div style="font-size: 0.65rem; opacity: 0.8;">Tháng ${monthNum}</div>
+      <div style="font-size: 0.65rem; opacity: 0.8;">${monthText}</div>
     `;
 
     if (i === 0) {
@@ -461,14 +480,14 @@ function initWizardNavigation() {
 function validateWizardStep(step) {
   if (step === 1) {
     if (!bookingState.serviceName) {
-      alert('Vui lòng chọn một gói trị liệu.');
+      alert(t('alertSelectPackage'));
       return false;
     }
     return true;
   }
   if (step === 2) {
     if (!bookingState.selectedSlot) {
-      alert('Vui lòng chọn một khung giờ còn trống.');
+      alert(t('alertSelectSlot'));
       return false;
     }
     return true;
@@ -479,12 +498,12 @@ function validateWizardStep(step) {
     const noteEl = document.getElementById('modalCustNote');
 
     if (!nameEl.value.trim()) {
-      alert('Vui lòng nhập họ và tên của bạn.');
+      alert(t('alertEnterName'));
       nameEl.focus();
       return false;
     }
     if (!phoneEl.value.trim() || phoneEl.value.trim().length < 9) {
-      alert('Vui lòng nhập số điện thoại hợp lệ.');
+      alert(t('alertEnterPhone'));
       phoneEl.focus();
       return false;
     }
@@ -519,18 +538,13 @@ function goToStep(step) {
 }
 
 function prepareCompletionScreen() {
-  const randomSuffix = Math.floor(1000 + Math.random() * 9000);
-  bookingState.bookingCode = `EMEM${randomSuffix}`;
-
-  // Hiển thị mã đặt chỗ check-in nổi bật
-  const prominentCodeEl = document.getElementById('prominentBookingCode');
-  if (prominentCodeEl) prominentCodeEl.innerText = bookingState.bookingCode;
-
+  const isEn = getCurrentLang() === 'en';
   const servEl = document.getElementById('modalSummaryService');
   if (servEl) servEl.innerText = bookingState.serviceName;
 
   const timeEl = document.getElementById('modalSummaryTime');
-  if (timeEl) timeEl.innerText = `${bookingState.selectedDate} lúc ${bookingState.selectedSlot}`;
+  const atWord = isEn ? 'at' : 'lúc';
+  if (timeEl) timeEl.innerText = `${bookingState.selectedDate} ${atWord} ${bookingState.selectedSlot}`;
 
   const guestEl = document.getElementById('modalSummaryGuest');
   if (guestEl) guestEl.innerText = `${bookingState.customerName} - ${bookingState.customerPhone}`;
@@ -538,3 +552,15 @@ function prepareCompletionScreen() {
   const totalEl = document.getElementById('modalSummaryTotal');
   if (totalEl) totalEl.innerText = bookingState.servicePrice;
 }
+
+// Lắng nghe sự kiện chuyển đổi ngôn ngữ để đồng bộ hoá ngay các phần động
+window.addEventListener('languageChanged', () => {
+  generateDateList();
+  const anatomyModal = document.getElementById('anatomyModal');
+  if (anatomyModal && anatomyModal.classList.contains('active')) {
+    switchAtlasPackage(currentActivePackageKey);
+  }
+  if (bookingState.currentStep === 4) {
+    prepareCompletionScreen();
+  }
+});

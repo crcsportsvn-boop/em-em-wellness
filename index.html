@@ -18,18 +18,17 @@
 
   <!-- ==========================================================================
        HEADER: CHỈ GỒM 2 THÀNH PHẦN (1 LÀ LOGO VỀ TRANG CHỦ, 2 LÀ ĐẶT CHỖ NGAY)
-       (ĐÃ XÓA CHỮ "ÊM ÊM" Ở HEADER, CHỈ GIỮ LẠI LOGO)
        ========================================================================== -->
   <header class="site-header">
     <div class="container header-inner">
       <!-- 1. Chỉ giữ lại logo trên thanh header, click về trang chủ -->
-      <a href="#" class="brand-home-link" title="Về trang chủ êm êm">
+      <a href="#" class="brand-home-link" data-i18n-title="brandHomeTitle" title="Về trang chủ êm êm">
         <img src="logo.png" alt="Logo êm êm" class="header-logo-img">
       </a>
 
       <!-- 2. Nút Đặt Chỗ Ngay duy nhất trên menu -->
       <div class="header-actions">
-        <button class="btn btn-primary" data-open-booking>Đặt Chỗ Ngay</button>
+        <button class="btn btn-primary" data-open-booking data-i18n="bookNowBtn">Đặt Chỗ Ngay</button>
       </div>
     </div>
   </header>
@@ -48,16 +47,16 @@
         <!-- Logo chính thức logo.png -->
         <img src="logo.png" alt="êm êm" class="hero-logo-img">
         <!-- Slogan với font chữ mềm mại, cao thanh thoát -->
-        <div class="hero-slogan">XOA DỊU NHỮNG CƠN&nbsp;ĐAU</div>
+        <div class="hero-slogan" data-i18n="heroSlogan">XOA DỊU NHỮNG CƠN&nbsp;ĐAU</div>
       </div>
 
-      <p class="hero-desc">
+      <p class="hero-desc" data-i18n="heroDesc">
         Chào mừng bạn đến với góc nhỏ êm êm. Nơi thực hiện xoa bóp trị liệu với kỹ thuật viên được đào tạo chuyên môn chính quy, mang lại sự nâng niu và giải tỏa triệt để những cơn đau mỏi trên cơ thể&nbsp;bạn.
       </p>
 
       <div class="hero-actions">
-        <button class="btn btn-primary" data-open-booking>Đặt Chỗ Trải Nghiệm</button>
-        <a href="#services" class="btn btn-secondary">Khám Phá Dịch Vụ</a>
+        <button class="btn btn-primary" data-open-booking data-i18n="bookSessionBtn">Đặt Chỗ Trải Nghiệm</button>
+        <a href="#services" class="btn btn-secondary" data-i18n="exploreTherapiesBtn">Khám Phá Dịch Vụ</a>
       </div>
     </div>
   </section>
@@ -69,16 +68,16 @@
     <div class="container">
       <div class="philosophy-grid">
         <div class="philosophy-content">
-          <span class="tagline">Triết Lý Trị Liệu Tại Êm Êm</span>
-          <h2 class="heading-lg">Cá nhân hóa từng thao tác theo từng thể&nbsp;trạng</h2>
-          <p style="color: var(--color-text-muted); font-size: 1.02rem;">
+          <span class="tagline" data-i18n="philTagline">Triết Lý Trị Liệu Tại Êm Êm</span>
+          <h2 class="heading-lg" data-i18n="philHeading">Cá nhân hóa từng thao tác theo từng thể&nbsp;trạng</h2>
+          <p style="color: var(--color-text-muted); font-size: 1.02rem;" data-i18n="philDesc1">
             Tại êm êm, chúng tôi nâng niu từng trải nghiệm và sự phục hồi của bạn sau mỗi lần trị liệu. Với kỹ thuật viên được đào tạo chính quy, chúng tôi tự hào mang đến liệu pháp trị liệu được cá nhân hoá cho từng thể trạng riêng&nbsp;biệt.
           </p>
           <div class="quote-box">
-            <p class="quote-text">"Chúng tôi hiểu rõ những cơn đau cũng như cách xoa tan&nbsp;chúng."</p>
-            <span class="quote-author">êm êm</span>
+            <p class="quote-text" data-i18n="philQuote">"Chúng tôi hiểu rõ những cơn đau cũng như cách xoa tan&nbsp;chúng."</p>
+            <span class="quote-author" data-i18n="philQuoteAuthor">êm êm</span>
           </div>
-          <p style="color: var(--color-text-muted); font-size: 0.95rem;">
+          <p style="color: var(--color-text-muted); font-size: 0.95rem;" data-i18n="philDesc2">
             Không dùng những động tác xoa bóp hời hợt, liệu trình của chúng tôi tác động vào các dải cơ sâu, giải phóng các điểm co thắt cơ và phục hồi dòng lưu thông khí huyết tự&nbsp;nhiên.
           </p>
         </div>
@@ -88,8 +87,8 @@
           <div class="experience-card-floating">
             <div class="floating-icon">✦</div>
             <div>
-              <h4 style="font-size: 0.95rem; font-weight: 600; color: var(--color-primary-dark); margin-bottom: 0.15rem;">Kỹ thuật viên được đào tạo chuẩn y&nbsp;khoa</h4>
-              <p style="font-size: 0.8rem; color: var(--color-text-muted);">Chứng chỉ được cấp bởi trung tâm đào tạo theo nhu cầu xã hội của Đại Học Y Dược TP.&nbsp;HCM</p>
+              <h4 style="font-size: 0.95rem; font-weight: 600; color: var(--color-primary-dark); margin-bottom: 0.15rem;" data-i18n="philFloatTitle">Kỹ thuật viên được đào tạo chuẩn y&nbsp;khoa</h4>
+              <p style="font-size: 0.8rem; color: var(--color-text-muted);" data-i18n="philFloatSub">Chứng chỉ được cấp bởi trung tâm đào tạo theo nhu cầu xã hội của Đại Học Y Dược TP.&nbsp;HCM</p>
             </div>
           </div>
         </div>
@@ -98,14 +97,14 @@
   </section>
 
   <!-- ==========================================================================
-       SERVICES SECTION: CHỈ GIỚI THIỆU DỊCH VỤ - KHÔNG ĐỀ CẬP TIỀN BẠC
+       SERVICES SECTION: DANH MỤC DỊCH VỤ
        ========================================================================== -->
   <section id="services" class="section services-section">
     <div class="container">
       <div class="section-header">
-        <span class="tagline">Danh Mục Trị Liệu</span>
-        <h2 class="heading-lg">Gói Trị Liệu Chuyên&nbsp;Sâu</h2>
-        <p class="section-subtitle">
+        <span class="tagline" data-i18n="servicesTagline">Danh Mục Trị Liệu</span>
+        <h2 class="heading-lg" data-i18n="servicesHeading">Gói Trị Liệu Chuyên&nbsp;Sâu</h2>
+        <p class="section-subtitle" data-i18n="servicesSubtitle">
           Mỗi liệu pháp được nghiên cứu tỉ mỉ dựa trên giải phẫu cơ thể, tập trung xua tan các cơn đau nhức cơ bắp kinh niên và phục hồi năng lượng&nbsp;sống.
         </p>
       </div>
@@ -117,27 +116,27 @@
             <img src="picture/Gói trị liệu 1.png" alt="Trị liệu chuyên sâu thân trên" class="service-img">
           </div>
           <div class="service-body">
-            <h3 class="heading-md service-title">Trị Liệu Thân&nbsp;Trên</h3>
+            <h3 class="heading-md service-title" data-i18n="serviceUpperTitle">Trị Liệu Thân&nbsp;Trên</h3>
             <div class="service-duration">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-              <span>Thời lượng 60 phút</span>
+              <span data-i18n="serviceUpperDuration">Thời lượng 60 phút</span>
             </div>
-            <p class="service-desc">
+            <p class="service-desc" data-i18n="serviceUpperDesc">
               Tập trung giải tỏa toàn diện vùng đầu, cổ, vai, gáy, hai cánh tay và lưng trên. Đánh tan cảm giác đau nhức do ngồi làm việc máy tính nhiều và căng thẳng kéo&nbsp;dài.
             </p>
             <ul class="service-highlights">
               <li>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Nhóm cơ tác động: Cơ thang, cơ trám, cơ gối đầu, cơ ức đòn&nbsp;chũm</span>
+                <span data-i18n="serviceUpperHl1">Nhóm cơ tác động: Cơ thang, cơ trám, cơ gối đầu, cơ ức đòn&nbsp;chũm</span>
               </li>
               <li>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Giải phóng chèn ép rễ thần kinh cổ, xua tan đau&nbsp;đầu</span>
+                <span data-i18n="serviceUpperHl2">Giải phóng chèn ép rễ thần kinh cổ, xua tan đau&nbsp;đầu</span>
               </li>
             </ul>
             <div class="service-card-actions">
-              <button class="btn btn-primary" data-open-booking data-service="Trị Liệu Thân Trên" data-duration="60 phút">Đặt Chỗ Ngay</button>
-              <button class="btn-detail" data-anatomy="upper">Chi Tiết Trị Liệu</button>
+              <button class="btn btn-primary" data-open-booking data-service="Trị Liệu Thân Trên" data-duration="60 phút" data-i18n="bookNowBtn">Đặt Chỗ Ngay</button>
+              <button class="btn-detail" data-anatomy="upper" data-i18n="serviceDetailBtn">Chi Tiết Trị Liệu</button>
             </div>
           </div>
         </div>
@@ -148,27 +147,27 @@
             <img src="picture/Gói trị liệu 2.jpg" alt="Trị liệu chuyên sâu thân dưới" class="service-img">
           </div>
           <div class="service-body">
-            <h3 class="heading-md service-title">Trị Liệu Thân&nbsp;Dưới</h3>
+            <h3 class="heading-md service-title" data-i18n="serviceLowerTitle">Trị Liệu Thân&nbsp;Dưới</h3>
             <div class="service-duration">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-              <span>Thời lượng 60 phút</span>
+              <span data-i18n="serviceLowerDuration">Thời lượng 60 phút</span>
             </div>
-            <p class="service-desc">
+            <p class="service-desc" data-i18n="serviceLowerDesc">
               Tập trung giải phóng vùng thắt lưng, hông và cơ mông. Hỗ trợ giảm đau dây thần kinh tọa, tê mỏi chân và giải tỏa sự co cứng của các đốt sống thắt&nbsp;lưng.
             </p>
             <ul class="service-highlights">
               <li>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Nhóm cơ tác động: Cơ vuông thắt lưng, cơ hình lê, cơ dựng&nbsp;sống</span>
+                <span data-i18n="serviceLowerHl1">Nhóm cơ tác động: Cơ vuông thắt lưng, cơ hình lê, cơ dựng&nbsp;sống</span>
               </li>
               <li>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Cân bằng khung chậu, giúp bước đi linh hoạt và nhẹ&nbsp;nhõm</span>
+                <span data-i18n="serviceLowerHl2">Cân bằng khung chậu, giúp bước đi linh hoạt và nhẹ&nbsp;nhõm</span>
               </li>
             </ul>
             <div class="service-card-actions">
-              <button class="btn btn-primary" data-open-booking data-service="Trị Liệu Thân Dưới" data-duration="60 phút">Đặt Chỗ Ngay</button>
-              <button class="btn-detail" data-anatomy="lower">Chi Tiết Trị Liệu</button>
+              <button class="btn btn-primary" data-open-booking data-service="Trị Liệu Thân Dưới" data-duration="60 phút" data-i18n="bookNowBtn">Đặt Chỗ Ngay</button>
+              <button class="btn-detail" data-anatomy="lower" data-i18n="serviceDetailBtn">Chi Tiết Trị Liệu</button>
             </div>
           </div>
         </div>
@@ -179,27 +178,27 @@
             <img src="picture/Gói trị liệu 3.jpg" alt="Trị liệu toàn thân phục hồi" class="service-img">
           </div>
           <div class="service-body">
-            <h3 class="heading-md service-title">Trị Liệu Toàn&nbsp;Thân</h3>
+            <h3 class="heading-md service-title" data-i18n="serviceFullTitle">Trị Liệu Toàn&nbsp;Thân</h3>
             <div class="service-duration">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-              <span>Thời lượng 90 phút</span>
+              <span data-i18n="serviceFullDuration">Thời lượng 90 phút</span>
             </div>
-            <p class="service-desc">
+            <p class="service-desc" data-i18n="serviceFullDesc">
               Liệu trình chuyên sâu tái sinh toàn bộ hệ cơ từ đỉnh đầu đến các đầu ngón chân. Giúp cơ thể đi vào trạng thái thư thái sâu, kích hoạt khả năng tự hồi&nbsp;phục.
             </p>
             <ul class="service-highlights">
               <li>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Bao phủ toàn diện chuỗi cơ thân trên, thân dưới và&nbsp;chân</span>
+                <span data-i18n="serviceFullHl1">Bao phủ toàn diện chuỗi cơ thân trên, thân dưới và&nbsp;chân</span>
               </li>
               <li>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Thư giãn hệ thần kinh, hỗ trợ giấc ngủ sâu tự&nbsp;nhiên</span>
+                <span data-i18n="serviceFullHl2">Thư giãn hệ thần kinh, hỗ trợ giấc ngủ sâu tự&nbsp;nhiên</span>
               </li>
             </ul>
             <div class="service-card-actions">
-              <button class="btn btn-primary" data-open-booking data-service="Trị Liệu Toàn Thân" data-duration="90 phút">Đặt Chỗ Ngay</button>
-              <button class="btn-detail" data-anatomy="full">Chi Tiết Trị Liệu</button>
+              <button class="btn btn-primary" data-open-booking data-service="Trị Liệu Toàn Thân" data-duration="90 phút" data-i18n="bookNowBtn">Đặt Chỗ Ngay</button>
+              <button class="btn-detail" data-anatomy="full" data-i18n="serviceDetailBtn">Chi Tiết Trị Liệu</button>
             </div>
           </div>
         </div>
@@ -208,9 +207,9 @@
       <!-- Liệu trình chăm sóc định kỳ -->
       <div class="combos-wrap">
         <div class="combos-header">
-          <span class="tagline">Lộ Trình Định Kỳ</span>
-          <h3 class="heading-lg">Gói Chăm Sóc Sức Khỏe Lâu&nbsp;Dài</h3>
-          <p style="opacity: 0.88; font-size: 0.95rem; line-height: 1.6;">
+          <span class="tagline" data-i18n="combosTagline">Lộ Trình Định Kỳ</span>
+          <h3 class="heading-lg" data-i18n="combosHeading">Gói Chăm Sóc Sức Khỏe Lâu&nbsp;Dài</h3>
+          <p style="opacity: 0.88; font-size: 0.95rem; line-height: 1.6;" data-i18n="combosSubtitle">
             Cơ bắp cần được xoa dịu đều đặn để duy trì biên độ vận động và phòng ngừa các cơn đau tái phát do tính chất công&nbsp;việc.
           </p>
         </div>
@@ -219,13 +218,13 @@
           <!-- Gói định kỳ 1 -->
           <div class="combo-card">
             <div>
-              <span class="combo-badge">Lộ trình toàn thân chuyên sâu</span>
-              <h4 class="combo-title">Gói 5 Buổi Trị Liệu Toàn&nbsp;Thân</h4>
-              <p style="opacity: 0.88; font-size: 0.9rem; line-height: 1.6;">
+              <span class="combo-badge" data-i18n="combo1Badge">Lộ trình toàn thân chuyên sâu</span>
+              <h4 class="combo-title" data-i18n="combo1Title">Gói 5 Buổi Trị Liệu Toàn&nbsp;Thân</h4>
+              <p style="opacity: 0.88; font-size: 0.9rem; line-height: 1.6;" data-i18n="combo1Desc">
                 Liệu trình 90 phút dành cho người thường xuyên làm việc áp lực cao, giúp giải tỏa mệt mỏi và tái tạo năng lượng mỗi&nbsp;tuần.
               </p>
             </div>
-            <button class="btn btn-primary w-full" style="background: #FFFFFF; color: var(--color-primary-dark);" data-open-booking data-service="Combo 5 Buổi Toàn Thân" data-duration="Lộ trình">
+            <button class="btn btn-primary w-full" style="background: #FFFFFF; color: var(--color-primary-dark);" data-open-booking data-service="Combo 5 Buổi Toàn Thân" data-duration="Lộ trình" data-i18n="combo1Btn">
               Đặt Gói 5 Buổi
             </button>
           </div>
@@ -233,13 +232,13 @@
           <!-- Gói định kỳ 2 -->
           <div class="combo-card">
             <div>
-              <span class="combo-badge">Lộ trình thân trên hoặc thân dưới</span>
-              <h4 class="combo-title">Gói 10 Buổi Trị Liệu Chuyên&nbsp;Sâu</h4>
-              <p style="opacity: 0.88; font-size: 0.9rem; line-height: 1.6;">
+              <span class="combo-badge" data-i18n="combo2Badge">Lộ trình thân trên hoặc thân dưới</span>
+              <h4 class="combo-title" data-i18n="combo2Title">Gói 10 Buổi Trị Liệu Chuyên&nbsp;Sâu</h4>
+              <p style="opacity: 0.88; font-size: 0.9rem; line-height: 1.6;" data-i18n="combo2Desc">
                 Áp dụng linh hoạt cho gói 60 phút thân trên hoặc thân dưới theo tình trạng thể trạng từng ngày. Có thể chia sẻ cùng người thân trong gia&nbsp;đình.
               </p>
             </div>
-            <button class="btn btn-primary w-full" style="background: #FFFFFF; color: var(--color-primary-dark);" data-open-booking data-service="Combo 10 Buổi Thân Trên hoặc Thân Dưới" data-duration="Lộ trình">
+            <button class="btn btn-primary w-full" style="background: #FFFFFF; color: var(--color-primary-dark);" data-open-booking data-service="Combo 10 Buổi Thân Trên hoặc Thân Dưới" data-duration="Lộ trình" data-i18n="combo2Btn">
               Đặt Gói 10 Buổi
             </button>
           </div>
@@ -256,12 +255,12 @@
       <div class="therapist-card">
         <div class="therapist-header">
           <div class="cert-badge">
-            <span>✓ Đạt chuẩn tay nghề và chứng chỉ <span class="nowrap">hành nghề chính quy</span></span>
+            <span data-i18n="therapistBadge">✓ Đạt chuẩn tay nghề và chứng chỉ <span class="nowrap">hành nghề chính quy</span></span>
           </div>
-          <h2 class="heading-lg" style="color: var(--color-primary-dark); margin-bottom: 0.75rem;">
+          <h2 class="heading-lg" style="color: var(--color-primary-dark); margin-bottom: 0.75rem;" data-i18n="therapistHeading">
             An tâm gửi gắm cơ thể cho người thấu hiểu giải phẫu&nbsp;học
           </h2>
-          <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.65;">
+          <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.65;" data-i18n="therapistDesc">
             Tại êm êm, chúng tôi nói không với những thao tác và kỹ thuật chưa được chứng nhận. Kỹ thuật viên đều tốt nghiệp khóa xoa bóp trị liệu chính quy từ trung tâm đào tạo nguồn nhân lực theo nhu cầu xã hội của Đại học Y Dược TP.HCM, nắm rõ vị trí các dây thần kinh, khớp xương và nhóm&nbsp;cơ.
           </p>
         </div>
@@ -272,9 +271,9 @@
             <div class="module-icon-circle">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"></path><circle cx="12" cy="12" r="10"></circle></svg>
             </div>
-            <h3 class="module-title">ĐÀO TẠO TRỊ LIỆU CHÍNH&nbsp;QUY</h3>
-            <span class="module-subtitle">Thuộc đại học y dược TP.HCM</span>
-            <p class="module-desc">
+            <h3 class="module-title" data-i18n="mod1Title">ĐÀO TẠO TRỊ LIỆU CHÍNH&nbsp;QUY</h3>
+            <span class="module-subtitle" data-i18n="mod1Sub">Thuộc đại học y dược TP.HCM</span>
+            <p class="module-desc" data-i18n="mod1Desc">
               Kỹ thuật viên được đào tạo bài bản từ TT Đào Tạo Nguồn Nhân Lực, nắm vững kiến thức giải phẫu cơ xương&nbsp;khớp.
             </p>
           </div>
@@ -284,9 +283,9 @@
             <div class="module-icon-circle">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
             </div>
-            <h3 class="module-title">Dầu Thảo Mộc Tự&nbsp;Nhiên</h3>
-            <span class="module-subtitle">Dầu dừa ép lạnh & tinh dầu an toàn</span>
-            <p class="module-desc">
+            <h3 class="module-title" data-i18n="mod2Title">Dầu Thảo Mộc Tự&nbsp;Nhiên</h3>
+            <span class="module-subtitle" data-i18n="mod2Sub">Dầu dừa ép lạnh & tinh dầu an toàn</span>
+            <p class="module-desc" data-i18n="mod2Desc">
               Dầu xoa bóp an dịu nhẹ, tạo độ trơn mượt lý tưởng khi thao tác miết cơ, an toàn tuyệt đối cho làn&nbsp;da.
             </p>
           </div>
@@ -296,9 +295,9 @@
             <div class="module-icon-circle">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
             </div>
-            <h3 class="module-title">Khăn Trải dùng một&nbsp;lần</h3>
-            <span class="module-subtitle">Tiêu chuẩn vệ sinh nghiêm ngặt</span>
-            <p class="module-desc">
+            <h3 class="module-title" data-i18n="mod3Title">Khăn Trải dùng một&nbsp;lần</h3>
+            <span class="module-subtitle" data-i18n="mod3Sub">Tiêu chuẩn vệ sinh nghiêm ngặt</span>
+            <p class="module-desc" data-i18n="mod3Desc">
               100% khăn trải và ga giường trị liệu được huỷ bỏ và thay mới sau mỗi lần trị liệu, đảm bảo vệ sinh tuyệt&nbsp;đối.
             </p>
           </div>
@@ -313,9 +312,9 @@
   <section class="section location-section">
     <div class="container">
       <div class="section-header">
-        <span class="tagline">Vị Trí & Chỉ Đường</span>
-        <h2 class="heading-lg">Ghé Thăm Góc Nhỏ Êm&nbsp;Êm</h2>
-        <p class="section-subtitle">
+        <span class="tagline" data-i18n="locTagline">Vị Trí & Chỉ Đường</span>
+        <h2 class="heading-lg" data-i18n="locHeading">Ghé Thăm Góc Nhỏ Êm&nbsp;Êm</h2>
+        <p class="section-subtitle" data-i18n="locSubtitle">
           Nằm trong một con hẻm yên bình tại Bình Thạnh, cách biệt khỏi khói bụi và tiếng còi xe ồn ào của phố&nbsp;thị.
         </p>
       </div>
@@ -327,9 +326,9 @@
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
             </div>
             <div>
-              <div class="info-title">Địa Chỉ</div>
-              <div class="info-detail">366/1, Lê Quang Định, Phường 11, Quận Bình Thạnh, TP. Hồ Chí Minh</div>
-              <p style="font-size: 0.82rem; color: var(--color-text-muted); margin-top: 0.25rem;">
+              <div class="info-title" data-i18n="locAddressTitle">Địa Chỉ</div>
+              <div class="info-detail" data-i18n="locAddressDetail">366/1, Lê Quang Định, Phường 11, Quận Bình Thạnh, TP. Hồ Chí Minh</div>
+              <p style="font-size: 0.82rem; color: var(--color-text-muted); margin-top: 0.25rem;" data-i18n="locAddressNote">
                 Hẻm rộng, xe hơi và xe máy vào tận cửa thuận&nbsp;tiện.
               </p>
             </div>
@@ -340,9 +339,9 @@
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
             </div>
             <div>
-              <div class="info-title">Hotline và Zalo</div>
+              <div class="info-title" data-i18n="locHotlineTitle">Hotline và Zalo</div>
               <div class="info-detail"><a href="tel:0909245911" style="color: var(--color-primary); font-weight: 600;">0909 245 911</a></div>
-              <p style="font-size: 0.82rem; color: var(--color-text-muted); margin-top: 0.2rem;">
+              <p style="font-size: 0.82rem; color: var(--color-text-muted); margin-top: 0.2rem;" data-i18n="locHotlineNote">
                 Sẵn sàng giải đáp thắc mắc và tư vấn thể trạng từ 10:00 đến 20:00 mỗi&nbsp;ngày.
               </p>
             </div>
@@ -353,16 +352,16 @@
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
             </div>
             <div>
-              <div class="info-title">Khung Giờ Đón Khách</div>
-              <div class="info-detail">Thứ Hai đến Chủ Nhật: 09:00 - 20:00</div>
-              <p style="font-size: 0.82rem; color: var(--color-text-muted); margin-top: 0.2rem;">
+              <div class="info-title" data-i18n="locHoursTitle">Khung Giờ Đón Khách</div>
+              <div class="info-detail" data-i18n="locHoursDetail">Thứ Hai đến Chủ Nhật: 09:00 - 20:00</div>
+              <p style="font-size: 0.82rem; color: var(--color-text-muted); margin-top: 0.2rem;" data-i18n="locHoursNote">
                 Lượt nhận khách cuối cùng trong ngày bắt đầu lúc&nbsp;18:30.
               </p>
             </div>
           </div>
 
           <div style="margin-top: auto; padding-top: 0.5rem;">
-            <a href="https://maps.google.com/?q=366/1+L%C3%AA+Quang+%C4%90%E1%BB%8Bnh,+Ph%C6%B0%E1%BB%9Dng+11,+B%C3%ACnh+Th%E1%BA%A1nh,+TP+H%E1%BB%93+Ch%C3%AD+Minh" target="_blank" class="btn btn-primary w-full">
+            <a href="https://maps.google.com/?q=366/1+L%C3%AA+Quang+%C4%90%E1%BB%8Bnh,+Ph%C6%B0%E1%BB%9Dng+11,+B%C3%ACnh+Th%E1%BA%A1nh,+TP+H%E1%BB%93+Ch%C3%AD+Minh" target="_blank" class="btn btn-primary w-full" data-i18n="locMapBtn">
               Mở Trên Bản Đồ Chỉ Đường
             </a>
           </div>
@@ -394,24 +393,28 @@
 
         <!-- Đoạn text mô tả ở góc phải -->
         <div class="footer-text-side">
-          <p class="footer-desc">
+          <p class="footer-desc" data-i18n="footerDesc">
             Góc xoa bóp trị liệu chuyên sâu chuẩn y khoa. Nơi cơ thể bạn được lắng nghe, nâng niu và giải tỏa triệt để những cơn đau mỏi cơ xương&nbsp;khớp.
           </p>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>© 2026 Êm Êm Wellness. Bảo lưu mọi quyền.</p>
+        <p data-i18n="footerCopy">© 2026 Êm Êm Wellness. Bảo lưu mọi quyền.</p>
       </div>
     </div>
   </footer>
 
-  <!-- Floating Zalo & Phone -->
+  <!-- Floating Switch Language, Zalo & Phone -->
   <div class="floating-contacts">
-    <a href="https://zalo.me/0909245911" target="_blank" class="floating-btn zalo" title="Nhắn Zalo 0909245911">
+    <!-- Nút Switch Ngôn ngữ tròn đồng bộ, màu giống phone call (var(--color-primary)) -->
+    <button id="langSwitchBtn" class="floating-btn lang-switch-btn" title="Switch Language / Chuyển sang Tiếng Anh" aria-label="Switch Language">
+      <span class="lang-switch-text">EN</span>
+    </button>
+    <a href="https://zalo.me/0909245911" target="_blank" class="floating-btn zalo" data-i18n-title="zaloBtnTitle" title="Nhắn Zalo 0909245911">
       <span style="font-weight: 700; font-size: 0.75rem;">Zalo</span>
     </a>
-    <a href="tel:0909245911" class="floating-btn" title="Gọi Hotline 0909245911">
+    <a href="tel:0909245911" class="floating-btn" data-i18n-title="phoneBtnTitle" title="Gọi Hotline 0909245911">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
     </a>
   </div>
@@ -422,35 +425,35 @@
   <div id="bookingWindowModal" class="booking-window-modal">
     <div class="booking-window-dialog">
       <div class="booking-window-header">
-        <div class="booking-window-title">Đặt Lịch Hẹn Trải Nghiệm</div>
+        <div class="booking-window-title" data-i18n="modalTitle">Đặt Lịch Hẹn Trải Nghiệm</div>
         <button id="closeBookingWindowBtn" class="close-btn">&times;</button>
       </div>
 
-      <!-- 4 Bước Đặt Lịch (Bước 4 tên là Hoàn Tất) -->
+      <!-- 4 Bước Đặt Lịch -->
       <div class="booking-steps-nav">
         <div class="step-indicator active" data-step="1">
           <span class="step-num">1</span>
-          <span>Gói Trị Liệu</span>
+          <span data-i18n="step1Tab">Gói Trị Liệu</span>
         </div>
         <div class="step-indicator" data-step="2">
           <span class="step-num">2</span>
-          <span>Ngày & Giờ</span>
+          <span data-i18n="step2Tab">Ngày & Giờ</span>
         </div>
         <div class="step-indicator" data-step="3">
           <span class="step-num">3</span>
-          <span>Thông Tin</span>
+          <span data-i18n="step3Tab">Thông Tin</span>
         </div>
         <div class="step-indicator" data-step="4">
           <span class="step-num">4</span>
-          <span>Hoàn Tất</span>
+          <span data-i18n="step4Tab">Hoàn Tất</span>
         </div>
       </div>
 
       <div class="booking-window-body">
-        <!-- BƯỚC 1: CHỌN GÓI (3 NÚT TRÊN, 2 NÚT DƯỚI - ĐẦY ĐỦ GÓI 5 BUỔI) -->
+        <!-- BƯỚC 1: CHỌN GÓI -->
         <div id="modalStep1" class="booking-step-content active">
-          <h3 class="wizard-step-title">Bước 1: Chọn gói bạn mong muốn</h3>
-          <p class="wizard-step-desc">
+          <h3 class="wizard-step-title" data-i18n="wStep1Title">Bước 1: Chọn gói bạn mong muốn</h3>
+          <p class="wizard-step-desc" data-i18n="wStep1Desc">
             Vui lòng chọn dịch vụ phù hợp nhất với tình trạng cơ thể hiện tại của bạn.
           </p>
 
@@ -459,69 +462,69 @@
             <!-- HÀNG 1: 3 GÓI TRỊ LIỆU ĐƠN LẺ -->
             <div class="service-radio-card card-span-2 selected" data-duration="60 phút">
               <div class="service-radio-header">
-                <span class="service-radio-name">Trị Liệu Thân Trên</span>
+                <span class="service-radio-name" data-i18n="pkgUpperName">Trị Liệu Thân Trên</span>
                 <span class="service-radio-price">490.000 VNĐ</span>
               </div>
-              <p style="font-size: 0.78rem; color: var(--color-text-muted);">60 phút • Đầu, cổ vai gáy, bả vai và cánh tay</p>
+              <p style="font-size: 0.78rem; color: var(--color-text-muted);" data-i18n="pkgUpperDesc">60 phút • Đầu, cổ vai gáy, bả vai và cánh tay</p>
             </div>
 
             <div class="service-radio-card card-span-2" data-duration="60 phút">
               <div class="service-radio-header">
-                <span class="service-radio-name">Trị Liệu Thân Dưới</span>
+                <span class="service-radio-name" data-i18n="pkgLowerName">Trị Liệu Thân Dưới</span>
                 <span class="service-radio-price">490.000 VNĐ</span>
               </div>
-              <p style="font-size: 0.78rem; color: var(--color-text-muted);">60 phút • Thắt lưng, vùng hông và cơ mông</p>
+              <p style="font-size: 0.78rem; color: var(--color-text-muted);" data-i18n="pkgLowerDesc">60 phút • Thắt lưng, vùng hông và cơ mông</p>
             </div>
 
             <div class="service-radio-card card-span-2" data-duration="90 phút">
               <div class="service-radio-header">
-                <span class="service-radio-name">Trị Liệu Toàn Thân</span>
+                <span class="service-radio-name" data-i18n="pkgFullName">Trị Liệu Toàn Thân</span>
                 <span class="service-radio-price">690.000 VNĐ</span>
               </div>
-              <p style="font-size: 0.78rem; color: var(--color-text-muted);">90 phút • Chăm sóc toàn diện từ đầu đến chân</p>
+              <p style="font-size: 0.78rem; color: var(--color-text-muted);" data-i18n="pkgFullDesc">90 phút • Chăm sóc toàn diện từ đầu đến chân</p>
             </div>
 
             <!-- HÀNG 2: 2 GÓI COMBO TIẾT KIỆM -->
             <div class="service-radio-card card-span-3" data-duration="Lộ trình">
               <div class="service-radio-header">
-                <span class="service-radio-name">Combo 5 Buổi Toàn Thân</span>
+                <span class="service-radio-name" data-i18n="pkgCombo5Name">Combo 5 Buổi Toàn Thân</span>
                 <span class="service-radio-price">2.900.000 VNĐ</span>
               </div>
-              <p style="font-size: 0.78rem; color: var(--color-text-muted);">90 phút mỗi buổi • Liệu trình phục hồi chuyên sâu</p>
+              <p style="font-size: 0.78rem; color: var(--color-text-muted);" data-i18n="pkgCombo5Desc">90 phút mỗi buổi • Liệu trình phục hồi chuyên sâu</p>
             </div>
 
             <div class="service-radio-card card-span-3" data-duration="Lộ trình">
               <div class="service-radio-header">
-                <span class="service-radio-name">Combo 10 Buổi Thân Trên hoặc Thân Dưới</span>
+                <span class="service-radio-name" data-i18n="pkgCombo10Name">Combo 10 Buổi Thân Trên hoặc Thân Dưới</span>
                 <span class="service-radio-price">3.900.000 VNĐ</span>
               </div>
-              <p style="font-size: 0.78rem; color: var(--color-text-muted);">60 phút mỗi buổi • Thời hạn sử dụng 6 tháng</p>
+              <p style="font-size: 0.78rem; color: var(--color-text-muted);" data-i18n="pkgCombo10Desc">60 phút mỗi buổi • Thời hạn sử dụng 6 tháng</p>
             </div>
           </div>
 
-          <!-- Nút điều hướng cách đều với UI phía trên, tiếp tục nằm bên phải -->
+          <!-- Nút điều hướng -->
           <div class="wizard-nav-actions">
             <div></div>
-            <button class="btn btn-primary" data-wizard-next="2">Tiếp Tục: Chọn Ngày & Giờ →</button>
+            <button class="btn btn-primary" data-wizard-next="2" data-i18n="nextToStep2">Tiếp Tục: Chọn Ngày & Giờ →</button>
           </div>
         </div>
 
         <!-- BƯỚC 2: CHỌN NGÀY VÀ GIỜ -->
         <div id="modalStep2" class="booking-step-content">
-          <h3 class="wizard-step-title">Bước 2: Chọn ngày và khung giờ bạn muốn đến</h3>
-          <p class="wizard-step-desc">
+          <h3 class="wizard-step-title" data-i18n="wStep2Title">Bước 2: Chọn ngày và khung giờ bạn muốn đến</h3>
+          <p class="wizard-step-desc" data-i18n="wStep2Desc">
             Các ca được sắp xếp giãn cách để bạn luôn có không gian nghỉ ngơi yên tĩnh nhất.
           </p>
 
           <div style="margin-bottom: 0.65rem;">
-            <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-text-light); font-weight: 600; display: block; margin-bottom: 0.35rem;">Chọn ngày:</span>
+            <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-text-light); font-weight: 600; display: block; margin-bottom: 0.35rem;" data-i18n="selectDateLabel">Chọn ngày:</span>
             <div id="modalDateScrollContainer" class="date-scroll-container">
               <!-- Sinh tự động từ app.js -->
             </div>
           </div>
 
           <div>
-            <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-text-light); font-weight: 600; display: block; margin-bottom: 0.45rem;">Khung giờ còn nhận khách:</span>
+            <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-text-light); font-weight: 600; display: block; margin-bottom: 0.45rem;" data-i18n="selectSlotLabel">Khung giờ còn nhận khách:</span>
             <div class="slots-grid">
               <button class="slot-btn" data-slot="09:00 - 10:00">09:00</button>
               <button class="slot-btn" data-slot="10:30 - 11:30">10:30</button>
@@ -532,92 +535,92 @@
             </div>
           </div>
 
-          <!-- Nút điều hướng cách đều -->
+          <!-- Nút điều hướng -->
           <div class="wizard-nav-actions">
-            <button class="btn btn-secondary" data-wizard-prev="1">← Quay Lại</button>
-            <button class="btn btn-primary" data-wizard-next="3">Tiếp Tục: Điền Thông Tin →</button>
+            <button class="btn btn-secondary" data-wizard-prev="1" data-i18n="prevBtn">← Quay Lại</button>
+            <button class="btn btn-primary" data-wizard-next="3" data-i18n="nextToStep3">Tiếp Tục: Điền Thông Tin →</button>
           </div>
         </div>
 
-        <!-- BƯỚC 3: THÔNG TIN KHÁCH HÀNG (ĐÃ BỎ EMAIL, CHỈ CẦN SỐ ĐIỆN THOẠI) -->
+        <!-- BƯỚC 3: THÔNG TIN KHÁCH HÀNG -->
         <div id="modalStep3" class="booking-step-content">
-          <h3 class="wizard-step-title">Bước 3: Thông tin người nhận trị liệu</h3>
-          <p class="wizard-step-desc">
+          <h3 class="wizard-step-title" data-i18n="wStep3Title">Bước 3: Thông tin người nhận trị liệu</h3>
+          <p class="wizard-step-desc" data-i18n="wStep3Desc">
             Thông tin của bạn được bảo mật và chỉ dùng để nhân viên liên hệ đón tiếp.
           </p>
 
           <div class="form-grid">
             <div class="form-group">
-              <label class="form-label" for="modalCustName">Họ và tên của bạn *</label>
-              <input type="text" id="modalCustName" class="form-input" placeholder="Ví dụ: Minh Nguyễn" required>
+              <label class="form-label" for="modalCustName" data-i18n="formNameLabel">Họ và tên của bạn *</label>
+              <input type="text" id="modalCustName" class="form-input" data-i18n-placeholder="formNamePh" placeholder="Ví dụ: Minh Nguyễn" required>
             </div>
 
-            <!-- Trường số điện thoại tinh gọn không thừa chữ liên hệ -->
             <div class="form-group">
-              <label class="form-label" for="modalCustPhone">Số điện thoại *</label>
-              <input type="tel" id="modalCustPhone" class="form-input" placeholder="Ví dụ: 0909245911" required>
+              <label class="form-label" for="modalCustPhone" data-i18n="formPhoneLabel">Số điện thoại *</label>
+              <input type="tel" id="modalCustPhone" class="form-input" data-i18n-placeholder="formPhonePh" placeholder="Ví dụ: 0909245911" required>
             </div>
 
-            <!-- Trường ghi chú mở rộng -->
             <div class="form-group form-col-full">
-              <label class="form-label" for="modalCustNote">Ghi chú tình trạng cơ thể hoặc yêu cầu riêng</label>
-              <textarea id="modalCustNote" class="form-textarea" rows="2" placeholder="Ví dụ: Mỏi nhiều ở cổ gáy bên phải, ưu tiên lực vừa phải..."></textarea>
+              <label class="form-label" for="modalCustNote" data-i18n="formNoteLabel">Ghi chú tình trạng cơ thể hoặc yêu cầu riêng</label>
+              <textarea id="modalCustNote" class="form-textarea" rows="2" data-i18n-placeholder="formNotePh" placeholder="Ví dụ: Mỏi nhiều ở cổ gáy bên phải, ưu tiên lực vừa phải..."></textarea>
             </div>
           </div>
 
-          <!-- Nút điều hướng cách đều -->
+          <!-- Nút điều hướng -->
           <div class="wizard-nav-actions">
-            <button class="btn btn-secondary" data-wizard-prev="2">← Quay Lại</button>
-            <button class="btn btn-primary" data-wizard-next="4">Xác Nhận Đặt Chỗ →</button>
+            <button class="btn btn-secondary" data-wizard-prev="2" data-i18n="prevBtn">← Quay Lại</button>
+            <button class="btn btn-primary" data-wizard-next="4" data-i18n="confirmBookingBtn">Xác Nhận Đặt Chỗ →</button>
           </div>
         </div>
 
-        <!-- BƯỚC 4: XÁC NHẬN & MÃ ĐẶT CHỖ (ĐÃ BỎ ĐẶT CỌC / QUÉT QR) -->
+        <!-- BƯỚC 4: XÁC NHẬN & THÔNG BÁO TIẾP ĐÓN (ĐÃ XÓA MÃ TỰ ĐỘNG, 2 NÚT ĐỒNG BỘ ĐỀU NHAU) -->
         <div id="modalStep4" class="booking-step-content">
           <div class="booking-success-card">
             <div class="success-icon-wrap">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
             </div>
-            <h3 class="wizard-step-title" style="color: var(--color-accent-green); margin-bottom: 0.15rem;">Đặt Lịch Thành Công!</h3>
-            <p class="wizard-step-desc" style="margin-bottom: 0.55rem;">
+            <h3 class="wizard-step-title" style="color: var(--color-accent-green); margin-bottom: 0.15rem;" data-i18n="successTitle">Đặt Lịch Thành Công!</h3>
+            <p class="wizard-step-desc" style="margin-bottom: 0.55rem;" data-i18n="successSubtitle">
               cảm ơn bạn đã lựa chọn êm êm. Hẹn sớm gặp bạn
             </p>
 
-            <div class="booking-code-card">
-              <div class="booking-code-label">MÃ ĐẶT CHỖ CHECK-IN</div>
-              <div id="prominentBookingCode" class="prominent-code-badge">EMEM....</div>
-              <div class="booking-code-tip">📌 Êm êm sẽ nhắn tin xác nhận theo số điện thoại bạn cung cấp. Để đảm bảo thời lượng trị liệu và tiếp đón tốt, vui lòng đến đúng giờ và không đến sớm hơn 30 phút.</div>
+            <!-- Khung thông báo tiếp đón xác nhận (Đã xóa hẳn mục tạo mã tự động) -->
+            <div class="booking-notice-card">
+              <p class="booking-notice-text" data-i18n="bookingNoticeText">
+                📌 Êm êm sẽ nhắn tin xác nhận theo số điện thoại bạn cung cấp. Để đảm bảo thời lượng trị liệu và tiếp đón tốt, vui lòng đến đúng giờ và không đến sớm hơn 30 phút.
+              </p>
             </div>
 
             <table class="summary-table compact-summary-table">
               <tr>
-                <td>Dịch vụ đã chọn:</td>
+                <td data-i18n="summaryServiceLabel">Dịch vụ đã chọn:</td>
                 <td id="modalSummaryService" style="font-weight: 600; color: var(--color-primary-dark);">-</td>
               </tr>
               <tr>
-                <td>Thời gian hẹn:</td>
+                <td data-i18n="summaryTimeLabel">Thời gian hẹn:</td>
                 <td id="modalSummaryTime">-</td>
               </tr>
               <tr>
-                <td>Khách hàng:</td>
+                <td data-i18n="summaryGuestLabel">Khách hàng:</td>
                 <td id="modalSummaryGuest">-</td>
               </tr>
               <tr>
-                <td>Chi phí dịch vụ:</td>
+                <td data-i18n="summaryCostLabel">Chi phí dịch vụ:</td>
                 <td id="modalSummaryTotal" style="font-weight: 700; color: var(--color-primary);">-</td>
               </tr>
             </table>
 
-            <p style="font-size: 0.72rem; color: var(--color-text-muted); line-height: 1.35; margin: 0.35rem 0 0.5rem; text-align: center;">
+            <p style="font-size: 0.72rem; color: var(--color-text-muted); line-height: 1.35; margin: 0.35rem 0 0.5rem; text-align: center;" data-i18n="summaryPayTip">
               Thanh toán trực tiếp tại quầy sau khi quý khách trải nghiệm dịch vụ.
             </p>
 
-            <div class="wizard-nav-actions" style="justify-content: center; gap: 0.6rem; margin-top: 0.2rem; padding-top: 0.2rem; border-top: none;">
-              <button class="btn btn-primary" style="padding: 0.45rem 1.2rem; font-size: 0.8rem;" onclick="closeBookingWindow()">
-                Hoàn Tất & Đóng
+            <!-- 2 Nút hoàn tất kích thước đều nhau hoàn hảo -->
+            <div class="step4-actions">
+              <button class="btn btn-primary step4-btn" onclick="closeBookingWindow()">
+                <span data-i18n="finishCloseBtn">Hoàn Tất & Đóng</span>
               </button>
-              <a href="https://zalo.me/0909245911" target="_blank" class="btn btn-secondary" style="padding: 0.45rem 1.1rem; font-size: 0.8rem; border-color: var(--color-accent-green); color: var(--color-accent-green);">
-                Nhắn Zalo Tư Vấn
+              <a href="https://zalo.me/0909245911" target="_blank" class="btn btn-secondary step4-btn">
+                <span data-i18n="zaloConsultBtn">Nhắn Zalo Tư Vấn</span>
               </a>
             </div>
           </div>
@@ -639,13 +642,11 @@
       </button>
       
       <div class="anatomy-atlas-grid">
-        <!-- CỘT 1: 3D HUMAN ATLAS VIEWER (TONE TRẮNG & CHIỀU CAO VỪA ĐÚNG CỬA SỔ) -->
+        <!-- CỘT 1: 3D HUMAN ATLAS VIEWER -->
         <div class="atlas-viewer-column">
           <div class="atlas-viewer-card">
-            <!-- Canvas 3D Three.js tự động xoay 360°, kéo để xoay, cuộn để zoom -->
             <div id="atlasCanvasContainer" class="atlas-canvas-container">
               <canvas id="atlasCanvas"></canvas>
-              <!-- Spinner Loading Indicator tối giản (chỉ icon xoay, không text, không thanh bar) -->
               <div id="atlasLoadingOverlay" class="atlas-loading-overlay hidden">
                 <div class="atlas-spinner-ring"></div>
               </div>
@@ -657,9 +658,9 @@
         <div class="atlas-details-column">
           <!-- Thanh chuyển đổi nhanh các gói trị liệu -->
           <div class="atlas-package-tabs">
-            <button class="atlas-tab-btn" data-switch-anatomy="upper">Thân Trên (60p)</button>
-            <button class="atlas-tab-btn" data-switch-anatomy="lower">Thân Dưới (60p)</button>
-            <button class="atlas-tab-btn" data-switch-anatomy="full">Toàn Thân (90p)</button>
+            <button class="atlas-tab-btn" data-switch-anatomy="upper" data-i18n="tabUpperText">Thân Trên (60p)</button>
+            <button class="atlas-tab-btn" data-switch-anatomy="lower" data-i18n="tabLowerText">Thân Dưới (60p)</button>
+            <button class="atlas-tab-btn" data-switch-anatomy="full" data-i18n="tabFullText">Toàn Thân (90p)</button>
           </div>
 
           <div id="anatomyContentBody">
