@@ -81,7 +81,7 @@ export const translations = {
     // Module 2
     mod2Title: "Dầu Thảo Mộc Tự&nbsp;Nhiên",
     mod2Sub: "Dầu dừa ép lạnh & tinh dầu an toàn",
-    mod2Desc: "Dầu xoa bóp an dịu nhẹ, tạo độ trơn mượt lý tưởng khi thao tác miết cơ, an toàn tuyệt đối cho làn&nbsp;da.",
+    mod2Desc: "Dầu xoa bóp dịu nhẹ, tạo độ trơn mượt lý tưởng khi thao tác miết cơ, an toàn tuyệt đối cho làn&nbsp;da.",
 
     // Module 3
     mod3Title: "Khăn Trải dùng một&nbsp;lần",
@@ -177,7 +177,9 @@ export const translations = {
     alertSelectPackage: "Vui lòng chọn một gói trị liệu.",
     alertSelectSlot: "Vui lòng chọn một khung giờ còn trống.",
     alertEnterName: "Vui lòng nhập họ và tên của bạn.",
-    alertEnterPhone: "Vui lòng nhập số điện thoại hợp lệ."
+    alertEnterPhone: "Vui lòng nhập số điện thoại hợp lệ.",
+    noSlotsTodayNotice: "Hôm nay đã qua các khung giờ nhận khách. Quý khách vui lòng chọn các ngày tiếp theo bên trên.",
+    alertSlotPassed: "Khung giờ này đã trôi qua. Vui lòng chọn khung giờ khác."
   },
 
   en: {
@@ -352,7 +354,9 @@ export const translations = {
     alertSelectPackage: "Please select a therapy package.",
     alertSelectSlot: "Please choose an available time slot.",
     alertEnterName: "Please enter your full name.",
-    alertEnterPhone: "Please enter a valid phone number."
+    alertEnterPhone: "Please enter a valid phone number.",
+    noSlotsTodayNotice: "All appointment slots for today have passed. Please select an upcoming date above.",
+    alertSlotPassed: "This time slot has already passed. Please select another time."
   }
 };
 

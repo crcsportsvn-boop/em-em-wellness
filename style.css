@@ -1249,6 +1249,19 @@ a {
   opacity: 0.5;
 }
 
+.no-slots-notice {
+  grid-column: 1 / -1;
+  padding: 0.85rem 1rem;
+  background-color: var(--color-primary-subtle);
+  border: 1px dashed var(--color-card-border);
+  border-radius: var(--radius-md);
+  color: var(--color-primary-dark);
+  font-size: 0.82rem;
+  text-align: center;
+  line-height: 1.5;
+  margin: 0.25rem 0;
+}
+
 /* Step 3: Form Thông tin */
 .form-grid {
   display: grid;
@@ -1513,7 +1526,12 @@ a {
 }
 
 .floating-btn.zalo {
-  background-color: #0068FF;
+  background-color: var(--color-primary-light);
+  color: #FFFFFF;
+}
+
+.floating-btn.zalo:hover {
+  background-color: var(--color-primary);
 }
 
 .lang-switch-btn {

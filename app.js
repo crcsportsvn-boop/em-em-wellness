@@ -314,6 +314,7 @@ let bookingState = {
   serviceDuration: "60 phút",
   selectedDate: "",
   selectedSlot: "",
+  selectedDayIndex: 0,
   customerName: "",
   customerPhone: "",
   customerNote: "",
@@ -349,6 +350,9 @@ function initBookingWindow() {
 function openBookingWindow(serviceName, duration) {
   const modal = document.getElementById('bookingWindowModal');
   if (!modal) return;
+
+  // Làm mới ngày và cập nhật các khung giờ khả dụng theo thời gian thực
+  generateDateList();
 
   if (serviceName) {
     bookingState.serviceName = serviceName;
@@ -389,6 +393,8 @@ function generateDateList() {
   const today = new Date();
   container.innerHTML = '';
 
+  const activeDayIndex = bookingState.selectedDayIndex || 0;
+
   for (let i = 0; i < 14; i++) {
     const d = new Date();
     d.setDate(today.getDate() + i);
@@ -398,39 +404,81 @@ function generateDateList() {
     const monthNum = d.getMonth() + 1;
     const monthText = isEn ? `Month ${monthNum}` : `Tháng ${monthNum}`;
 
+    const isSelected = i === activeDayIndex;
     const dateItem = document.createElement('div');
-    dateItem.className = `date-item ${i === 0 ? 'selected' : ''}`;
+    dateItem.className = `date-item ${isSelected ? 'selected' : ''}`;
     dateItem.innerHTML = `
       <div class="date-day">${dayName}</div>
       <div class="date-num">${dateNum}</div>
       <div style="font-size: 0.65rem; opacity: 0.8;">${monthText}</div>
     `;
 
-    if (i === 0) {
+    if (isSelected) {
       bookingState.selectedDate = `${dayName}, ${dateNum}/${monthNum}`;
+      bookingState.selectedDayIndex = i;
     }
 
     dateItem.addEventListener('click', () => {
       container.querySelectorAll('.date-item').forEach(el => el.classList.remove('selected'));
       dateItem.classList.add('selected');
       bookingState.selectedDate = `${dayName}, ${dateNum}/${monthNum}`;
+      bookingState.selectedDayIndex = i;
       updateSlots(i);
     });
 
     container.appendChild(dateItem);
   }
+
+  updateSlots(bookingState.selectedDayIndex);
 }
 
 function updateSlots(dayIndex) {
   const slotButtons = document.querySelectorAll('#bookingWindowModal .slot-btn');
-  slotButtons.forEach((btn, index) => {
+  const now = new Date();
+  const currentTotalMinutes = now.getHours() * 60 + now.getMinutes();
+
+  let visibleCount = 0;
+
+  slotButtons.forEach((btn) => {
     btn.classList.remove('selected');
-    btn.disabled = false;
-    if ((dayIndex === 0 && (index === 1 || index === 4)) || (dayIndex === 2 && index === 2)) {
+
+    // Lấy giờ bắt đầu từ data-slot hoặc text (vd: "09:00 - 10:00" -> 9h00)
+    const slotStr = btn.getAttribute('data-slot') || btn.innerText.trim();
+    const timeMatch = slotStr.match(/(\d{1,2}):(\d{2})/);
+    let isPast = false;
+
+    // Nếu chọn ngày hôm nay (dayIndex === 0), kiểm tra xem giờ ca đã qua chưa
+    if (dayIndex === 0 && timeMatch) {
+      const slotHour = parseInt(timeMatch[1], 10);
+      const slotMinute = parseInt(timeMatch[2], 10);
+      const slotMinutes = slotHour * 60 + slotMinute;
+      if (slotMinutes <= currentTotalMinutes) {
+        isPast = true;
+      }
+    }
+
+    if (isPast) {
+      // Ẩn đi hoàn toàn giờ quá khứ để người dùng không chọn được
+      btn.style.display = 'none';
       btn.disabled = true;
+    } else {
+      btn.style.display = '';
+      btn.disabled = false;
+      visibleCount++;
     }
   });
+
   bookingState.selectedSlot = "";
+
+  // Quản lý thông báo khi hôm nay đã hết tất cả khung giờ nhận khách
+  const noticeEl = document.getElementById('noSlotsTodayNotice');
+  if (noticeEl) {
+    if (dayIndex === 0 && visibleCount === 0) {
+      noticeEl.style.display = 'block';
+    } else {
+      noticeEl.style.display = 'none';
+    }
+  }
 }
 
 function initServiceSelection() {
@@ -489,6 +537,19 @@ function validateWizardStep(step) {
     if (!bookingState.selectedSlot) {
       alert(t('alertSelectSlot'));
       return false;
+    }
+    // Xác thực an toàn: Đảm bảo không chọn khung giờ đã trôi qua trong ngày hôm nay
+    if (bookingState.selectedDayIndex === 0) {
+      const now = new Date();
+      const currentTotalMinutes = now.getHours() * 60 + now.getMinutes();
+      const match = bookingState.selectedSlot.match(/(\d{1,2}):(\d{2})/);
+      if (match) {
+        const slotMinutes = parseInt(match[1], 10) * 60 + parseInt(match[2], 10);
+        if (slotMinutes <= currentTotalMinutes) {
+          alert(t('alertSlotPassed'));
+          return false;
+        }
+      }
     }
     return true;
   }
